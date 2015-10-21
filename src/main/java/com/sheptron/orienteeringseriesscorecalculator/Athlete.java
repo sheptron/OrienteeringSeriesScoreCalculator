@@ -7,6 +7,8 @@ package com.sheptron.orienteeringseriesscorecalculator;
 
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author shep
@@ -16,16 +18,21 @@ public class Athlete {
     /**
      *
      */
+    public enum Sex {Male, Female, YesPlease};
+    
     public ArrayList<Result> results;
     public int birthDate;
     public int controlCard;
+    public int id;          // id and/or controlCard could be used for checking duplicates
     public double handicap;
+    public Sex sex;
     
-    Athlete (int _birthDate, int _controlCard) {
+    Athlete (int _birthDate, int _controlCard, Sex _sex) {
         birthDate = _birthDate;
         controlCard = _controlCard;
-        handicap = 1.0;
+        handicap = 1.0;                  
         results = new ArrayList<Result>();
+        sex = _sex;
     }
     
     public void addResult(Result result){

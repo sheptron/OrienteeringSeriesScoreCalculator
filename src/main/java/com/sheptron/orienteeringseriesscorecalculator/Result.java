@@ -13,7 +13,9 @@ public class Result {
     public int raceNumber;
     public String raceDate;
     public String raceName;
+    public int distanceInMetres;
     public int timeInSeconds;
+    public double minutesPerKm;
     public int handicappedPlace;
     public int score;
     

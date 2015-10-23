@@ -16,8 +16,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Event {
     String name;
     
-    @XmlElement(name="Name")
     public String getName() {
         return name;
     }    
+    
+    @XmlElement(name="Name")
+    public void setName(String name){
+        this.name = name;
+    }
 }

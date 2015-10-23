@@ -20,13 +20,21 @@ public class Course {
     int climb;
     int numberOfControls;
     
-    @XmlElement(name="Name")
     public String getName() {
         return name;
     }
     
-    @XmlElement(name="Length")
+    @XmlElement(name="Name")
+    public void setName(String name){
+        this.name = name;
+    }
+    
     public int getLength() {
         return length;
+    }
+    
+    @XmlElement(name="Length")
+    public void setLength(int length){
+        this.length = length;
     }
 }

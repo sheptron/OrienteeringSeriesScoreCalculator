@@ -7,20 +7,9 @@ package orienteeringseriesscorecalculator;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xmlbeam.annotation.XBDocURL;
 
 /**
  *
@@ -28,6 +17,7 @@ import org.xmlbeam.annotation.XBDocURL;
  */
 public class OrienteeringSeriesScoreCalculator {
 
+    public static int currentYear = 2016; // TODO how to get this from xml?
     /**
      * @param args the command line arguments
      */
@@ -45,7 +35,9 @@ public class OrienteeringSeriesScoreCalculator {
          3. Calculate total scores for each Athlete
          4. Sort Athletes by total score
          5. Write output    
-         */
+         */     
+        
+        // TODO get filenames from current working dir
         File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
         File[] listOfFiles = folder.listFiles();
 
@@ -60,9 +52,49 @@ public class OrienteeringSeriesScoreCalculator {
 
                     JAXBContext jaxbContext = JAXBContext.newInstance(ResultList.class);
                     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                    ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));
+                    ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));                           
                     
-                    int m = 0;
+                    // TODO instead of creating a new ArrayList we should add/edit what we've got...
+                    ArrayList<Athlete> raceResultList = new ArrayList<>();
+                    
+                    /*
+                    Now go through resultList and build Athletes with Results
+                    For each classResult we need course.length for each personResult inside
+                    */
+                    Event event = resultList.event;
+                    
+                    for (int jj=0; jj<resultList.classResult.length; jj++){
+                       
+                        int distanceInMetres = resultList.classResult[jj].course.length;     
+                        
+                        for (PersonResult personResult : resultList.classResult[jj].personResult){
+                            
+                            Athlete.Sex sex = personResult.person.getAthleteSex();
+                            int controlCard = personResult.result.controlCard;
+                            int birthYear = personResult.person.getBirthYear();
+                            String firstName = personResult.person.name.given;
+                            String lastName = personResult.person.name.family;
+                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName);
+                            
+                            double currentHandicap = athlete.calculateHandicap(currentYear);
+                            
+                            int timeInSeconds = personResult.result.timeInSeconds;
+                            
+                            Result result = new Result(event, timeInSeconds, distanceInMetres, currentHandicap);
+                            
+                            athlete.addResult(result);
+                            
+                            // Now add this athlete and result to array
+                            raceResultList.add(athlete);
+                        }                                            
+                    }
+
+                    // Now to sort by handicappedSpeed
+                    int lmn = 0;
+                    
+                    // TODO how to get all eg "Race 1" results out to sort
+                    
+                    // And assign points
 
                 }
             }

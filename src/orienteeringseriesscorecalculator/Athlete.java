@@ -6,6 +6,7 @@
 package orienteeringseriesscorecalculator;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 
 
@@ -27,6 +28,8 @@ public class Athlete {
     public int id;          // id and/or controlCard could be used for checking duplicates
     public Sex sex;
     public double currentHandicap;  // Current - just to be clear that the handicap in a Result may be different
+    
+    public int indexOfCurrentRace = 0;
     
     Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName) {
         yearOfBirth = _yearOfBirth;
@@ -96,4 +99,12 @@ public class Athlete {
         return handicap;
     }
   
+    /*public class athleteScoreComparator implements Comparator<Athlete> {
+    
+        @Override
+        public int compare(Athlete athlete1, Athlete athlete2) {
+            // TODO need to work out the index, not just 0
+            return (athlete1.results.get(0).handicappedSpeed > athlete2.results.get(0).handicappedSpeed) ? 1 : 0;
+        }  
+    }*/
 }

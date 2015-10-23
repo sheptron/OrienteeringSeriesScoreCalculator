@@ -18,7 +18,7 @@ public class Result {
     public String raceName;
     public int distanceInMetres;
     public int timeInSeconds;
-    public double handicappedSpeed;     // Seconds/km
+    public int handicappedSpeed;     // Seconds/10km (equates to seconds/km rounded to 2 decimal places)
     public int handicappedPlace = 125;
     public int score = 0;
     public double handicap;
@@ -34,7 +34,7 @@ public class Result {
         
         handicap = _handicap;
         
-        handicappedSpeed = handicap * timeInSeconds / distanceInMetres;
+        handicappedSpeed = (int) Math.round(10.0 * 1000.0 * handicap * timeInSeconds / distanceInMetres);
     }
     
     public void setHandicappedPlace(int place){

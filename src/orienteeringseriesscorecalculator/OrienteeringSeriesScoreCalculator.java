@@ -5,7 +5,6 @@
  */
 package orienteeringseriesscorecalculator;
 
-import com.sun.corba.se.spi.ior.iiop.MaxStreamFormatVersionComponent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,11 +39,15 @@ public class OrienteeringSeriesScoreCalculator {
          4. Sort Athletes by total score
          5. Write output    
          */
+        
+        ArrayList<Athlete> overallResultList = new ArrayList<>();
+        
         // TODO get filenames from current working dir
         File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
         File[] listOfFiles = folder.listFiles();
 
         for (int i = 0; i < listOfFiles.length; i++) {
+            
             if (listOfFiles[i].isFile()) {
                 System.out.println("File " + listOfFiles[i].getName());
 
@@ -57,7 +60,7 @@ public class OrienteeringSeriesScoreCalculator {
                     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
                     ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));
 
-                    // TODO instead of creating a new ArrayList we should add/edit what we've got...
+                    // Create a list of athletes with a result for this race
                     ArrayList<Athlete> raceResultList = new ArrayList<>();
 
                     /*
@@ -77,7 +80,9 @@ public class OrienteeringSeriesScoreCalculator {
                             int birthYear = personResult.person.getBirthYear();
                             String firstName = personResult.person.name.given;
                             String lastName = personResult.person.name.family;
-                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName);
+                            int id = personResult.person.id;
+                            // TODO just use a PersonResult in the constructor for Athlete
+                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id);
 
                             double currentHandicap = athlete.calculateHandicap(currentYear);
 
@@ -104,14 +109,38 @@ public class OrienteeringSeriesScoreCalculator {
                     for (int k=0; k<raceResultList.size(); k++){
                         raceResultList.get(k).results.get(0).handicappedPlace = k+1;
                         raceResultList.get(k).results.get(0).score = Math.max(125-k, 0);
+                    }                                      
+                    
+                    // Now merge with previous raceResultLists                    
+                    for (Athlete raceAthlete : raceResultList) {
+                        if (overallResultList.contains(raceAthlete)) {
+                            for (Athlete overallAthlete : overallResultList) {
+                                if (raceAthlete.equals(overallAthlete)) {
+                                    // Add this result to overallAthlete
+                                    overallAthlete.results.add(raceAthlete.results.get(0));
+                                    break;
+                                }
+                            }
+                        }
+                        else overallResultList.add(raceAthlete);
                     }
-                    
-                    int opq = 0;
-                    
-                    // Now merge with previous raceResultLists
                 }
             }
         }
+        
+        // We've been through all the xml files now add up each athletes scores
+        for (Athlete athlete : overallResultList) athlete.totalScore(currentYear);
+        
+        // And sort (decreasing
+        Collections.sort(overallResultList, new Comparator<Athlete>() {
+            @Override
+            public int compare(Athlete a1, Athlete a2) {
+                return a2.totalScore - a1.totalScore;
+            }
+        });
+        
+        // And publish
+        int klm = 0;
     }
 
     private static String getFileExtension(File file) {

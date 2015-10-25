@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package orienteeringseriesscorecalculator;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -16,15 +17,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="ResultList")
 public class ResultList {
     
-    String xmlns;
-    String xmlns_xsi;
     String iofVersion;
     String createTime;
     String creator;
     
     Event event;
-    ClassResult[] classResult;
-
+    ClassResult[] classResult; 
+    
     public Event getEvent() {
         return event;
     }
@@ -41,5 +40,32 @@ public class ResultList {
     @XmlElement(name="ClassResult")
     public void setClassResult(ClassResult [] classResult) {
         this.classResult = classResult;
+    }
+    
+    public String getIofVersion(){
+        return this.iofVersion;
+    }
+    
+    @XmlAttribute(name="iofVersion")
+    public void setIofVersion(String iofVersion){
+        this.iofVersion = iofVersion;
+    }
+    
+    public String getCreateTime(){
+        return this.createTime;
+    }
+    
+    @XmlAttribute(name="createTime")
+    public void setCreateTime(String createTime){
+        this.createTime = createTime;
+    }
+    
+    public String getCreator(){
+        return this.creator;
+    }
+    
+    @XmlAttribute(name="creator")
+    public void setCreator(String creator){
+        this.creator = creator;
     }
 }

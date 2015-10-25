@@ -6,6 +6,7 @@
 package orienteeringseriesscorecalculator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 
@@ -28,15 +29,15 @@ public class Athlete {
     public int id;          // id and/or controlCard could be used for checking duplicates
     public Sex sex;
     public double currentHandicap;  // Current - just to be clear that the handicap in a Result may be different
-    
-    public int indexOfCurrentRace = 0;
-    
-    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName) {
+    public int totalScore = 0;
+  
+    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id) {
         yearOfBirth = _yearOfBirth;
         controlCard = _controlCard;                 
         results = new ArrayList<Result>();
         sex = _sex;
         name = firstName + " " + lastName;
+        id = _id;
     }
     
     public void addResult(Result result){
@@ -48,8 +49,21 @@ public class Athlete {
         // to post the cumulative results with best 3 races counting.
         
         // Sorts results by score and return the sum of the highest numberOfRaces.
+        Collections.sort(results, new Comparator<Result>() {
+            @Override
+            public int compare(Result r1, Result r2) {
+                return r1.score - r2.score;
+            }
+        });
         
-        return 0;
+        totalScore = 0;
+        for (int i=0; i<results.size(); i++){
+            if (i >= numberOfRaces) break;
+            
+            totalScore += results.get(i).score;
+        }
+        
+        return totalScore;
     }
     
     public double calculateHandicap(int currentYear){
@@ -98,7 +112,33 @@ public class Athlete {
         currentHandicap = handicap;
         return handicap;
     }
-  
+ 
+    @Override
+    public boolean equals(Object obj) {
+        
+        // Athlete objects are equal if the names are the same - check YOB as well?
+        
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Athlete athlete = (Athlete) obj;
+        
+        // TODO : test for possible duplicates here...
+        if (this.name.equalsIgnoreCase(athlete.name)){
+            // log to file
+        }
+        if (this.controlCard == athlete.controlCard){
+            // log to file
+        }
+
+        return this.name.equalsIgnoreCase(athlete.name); // this.id == athlete.id;
+    }
     /*public class athleteScoreComparator implements Comparator<Athlete> {
     
         @Override

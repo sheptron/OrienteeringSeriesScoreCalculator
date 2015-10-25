@@ -5,10 +5,32 @@
  */
 package orienteeringseriesscorecalculator;
 
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  *
  * @author shep
  */
 public class Organisation {
-    // Don't need this for now
+    
+    public String name;
+    public String shortName;
+    
+    public String getName(){
+        return name;
+    }
+    
+    @XmlElement(name="Name")
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getShortName(){
+        return shortName;
+    }
+    
+    @XmlElement(name="ShortName")
+    public void setShortName(String shortName){
+        this.shortName = shortName;
+    }
 }

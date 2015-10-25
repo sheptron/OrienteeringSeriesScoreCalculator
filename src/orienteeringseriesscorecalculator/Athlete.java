@@ -27,17 +27,19 @@ public class Athlete {
     public int yearOfBirth;
     public int controlCard;
     public int id;          // id and/or controlCard could be used for checking duplicates
+    public String club;     // TODO
     public Sex sex;
     public double currentHandicap;  // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
   
-    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id) {
+    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id, String _club) {
         yearOfBirth = _yearOfBirth;
         controlCard = _controlCard;                 
         results = new ArrayList<Result>();
         sex = _sex;
         name = firstName + " " + lastName;
         id = _id;
+        club = _club;
     }
     
     public void addResult(Result result){

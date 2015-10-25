@@ -10,9 +10,7 @@ package orienteeringseriesscorecalculator;
  * @author shep
  */
 public class Result {
-    
-    //public static handicapLookupTable; // TODO
-    
+        
     public String raceNumber;
     public String raceDate;
     public String raceName;
@@ -25,9 +23,9 @@ public class Result {
     
     Result(Event event, int _timeInSeconds, int _distanceInMetres, double _handicap){
         
-        raceName = parseRaceName(event);
-        raceDate = parseDate(event);
-        raceNumber = parseRaceNumber(event);
+        raceName = event.parseRaceName();
+        raceDate = event.parseDate();
+        raceNumber = event.parseRaceNumber();
         
         timeInSeconds = _timeInSeconds;
         distanceInMetres = _distanceInMetres;
@@ -43,21 +41,5 @@ public class Result {
     
     public void calculateScore(){
         score = 126 - handicappedPlace;     // 125 points for 1st, 124 for 2nd...
-    }
-    
-    private static String parseDate(Event event){
-        return event.name.substring(0, 10);
-    }
-    
-    private static String parseRaceNumber(Event event){
-        int start =  event.name.indexOf("_");
-        int stop = event.name.indexOf("_", start+1);
-        return event.name.substring(start+1, stop);
-    }
-    
-    private static String parseRaceName(Event event){
-        int start =  event.name.indexOf("_");
-        int stop = event.name.indexOf("_", start+1);
-        return event.name.substring(stop+1,event.name.length());
     }
 }

@@ -42,6 +42,8 @@ public class OrienteeringSeriesScoreCalculator {
         
         ArrayList<Athlete> overallResultList = new ArrayList<>();
         
+        ArrayList<Event> eventsList = new ArrayList<>();
+        
         // TODO get filenames from current working dir
         File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
         File[] listOfFiles = folder.listFiles();
@@ -62,6 +64,9 @@ public class OrienteeringSeriesScoreCalculator {
 
                     // Create a list of athletes with a result for this race
                     ArrayList<Athlete> raceResultList = new ArrayList<>();
+                    
+                    // Keep a record of this race
+                    eventsList.add(resultList.event);
 
                     /*
                      Now go through resultList and build Athletes with Results
@@ -81,8 +86,10 @@ public class OrienteeringSeriesScoreCalculator {
                             String firstName = personResult.person.name.given;
                             String lastName = personResult.person.name.family;
                             int id = personResult.person.id;
+                            String club =  personResult.organisation.shortName;
+                            if (club == null) club = "";
                             // TODO just use a PersonResult in the constructor for Athlete
-                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id);
+                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id, club);
 
                             double currentHandicap = athlete.calculateHandicap(currentYear);
 
@@ -140,7 +147,8 @@ public class OrienteeringSeriesScoreCalculator {
         });
         
         // And publish
-        int klm = 0;
+        ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList);
+        
     }
 
     private static String getFileExtension(File file) {

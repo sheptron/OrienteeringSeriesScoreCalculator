@@ -86,7 +86,10 @@ public class OrienteeringSeriesScoreCalculator {
                             String firstName = personResult.person.name.given;
                             String lastName = personResult.person.name.family;
                             int id = personResult.person.id;
-                            String club =  personResult.organisation.shortName;
+                            if (personResult.organisation == null){
+                                int klm = 0;
+                            }
+                            String club =  personResult.organisation.getShortName();
                             if (club == null) club = "";
                             // TODO just use a PersonResult in the constructor for Athlete
                             Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id, club);
@@ -148,7 +151,10 @@ public class OrienteeringSeriesScoreCalculator {
         
         // And publish
         ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList);
+        resultsPrinter.writeResults(overallResultList);
+        String htmlResults = resultsPrinter.finaliseTable();  
         
+        int ijk = 0;
     }
 
     private static String getFileExtension(File file) {

@@ -18,6 +18,14 @@ public class PersonResult {
     xResult result;
     Organisation organisation;
     
+    public PersonResult()
+    {
+        Organisation organisation = new Organisation();
+        organisation.setName("");
+        organisation.setShortName("");
+        organisation.setId("");
+        this.organisation = organisation;
+    }    
     public int getEntryId(){
         return entryId;
     }
@@ -46,7 +54,15 @@ public class PersonResult {
     }
     
     public Organisation getOrganisation(){
-        return organisation;
+        if (this.organisation == null){
+            Organisation organisation = new Organisation();
+            organisation.setName("");
+            organisation.setShortName("");
+            organisation.setId("");
+            this.organisation = organisation;
+        }
+        
+        return this.organisation;
     }
     
     @XmlElement(name="Organisation")

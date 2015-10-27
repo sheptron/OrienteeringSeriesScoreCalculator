@@ -31,18 +31,37 @@ public class Event {
         return this.name.substring(0, 10);
     }
     
-    public String parseRaceNumber(){
+    public int parseRaceNumber(){
         int start =  this.name.indexOf("_");
         int stop = this.name.indexOf("_", start+1);
         
         String sRaceNumber = this.name.substring(start+1, stop);
         this.raceNumber = Integer.parseInt(sRaceNumber);
-        return sRaceNumber;
+        return this.raceNumber;
     }
     
     public String parseRaceName(){
         int start =  this.name.indexOf("_");
         int stop = this.name.indexOf("_", start+1);
-        return this.name.substring(stop+1,this.name.length());
+        String nwsName = this.name.substring(stop+1,this.name.length()); //no white space
+        
+        // TODO add space before capital letters (excluding the first)
+        String string = insertSpaces(nwsName);
+        return string;
+        //return this.name.substring(stop+1,this.name.length());
+    }
+
+    private String insertSpaces(String string) {
+        // Don't insert a space before the FIRST letter!
+        String outString = string.substring(0, 1);
+
+        for (int i = 1; i < string.length(); i++) {
+            if (Character.isUpperCase(string.charAt(i))) {
+                outString += " " + string.substring(i, i+1);
+            } else {
+                outString += string.substring(i, i+1);
+            }
+        }
+        return outString;
     }
 }

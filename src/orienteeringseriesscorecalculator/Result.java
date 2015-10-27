@@ -11,7 +11,7 @@ package orienteeringseriesscorecalculator;
  */
 public class Result {
         
-    public String raceNumber;
+    public int raceNumber;
     public String raceDate;
     public String raceName;
     public int distanceInMetres;

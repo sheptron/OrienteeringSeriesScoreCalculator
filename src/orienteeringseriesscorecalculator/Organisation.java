@@ -13,11 +13,13 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Organisation {
     
-    public String name;
-    public String shortName;
+    String name;
+    String shortName;
+    
+    String id;
     
     public String getName(){
-        return name;
+        return this.name;
     }
     
     @XmlElement(name="Name")
@@ -26,11 +28,22 @@ public class Organisation {
     }
     
     public String getShortName(){
-        return shortName;
+        if (this.shortName == null)
+            return "";
+        else return this.shortName;
     }
     
     @XmlElement(name="ShortName")
     public void setShortName(String shortName){
         this.shortName = shortName;
+    }
+    
+    public String getId(){
+        return this.id;
+    }
+    
+    @XmlElement(name="Id")
+    public void setId(String id){
+        this.id = id;
     }
 }

@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import javax.swing.JFileChooser;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -44,8 +45,18 @@ public class OrienteeringSeriesScoreCalculator {
         
         ArrayList<Event> eventsList = new ArrayList<>();
         
-        // TODO get filenames from current working dir
-        File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
+        // Get file directory from user...
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        File folder;
+        if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            folder = fc.getSelectedFile();            
+        } else {
+            InformationDialog.infoBox("No directory selected, press OK to exit.", "Warning");
+            return;            
+        }
+        
+        //File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
         File[] listOfFiles = folder.listFiles();
 
         for (int i = 0; i < listOfFiles.length; i++) {
@@ -85,10 +96,7 @@ public class OrienteeringSeriesScoreCalculator {
                             int birthYear = personResult.person.getBirthYear();
                             String firstName = personResult.person.name.given;
                             String lastName = personResult.person.name.family;
-                            int id = personResult.person.id;
-                            if (personResult.organisation == null){
-                                int klm = 0;
-                            }
+                            int id = personResult.person.id;                            
                             String club =  personResult.organisation.getShortName();
                             if (club == null) club = "";
                             // TODO just use a PersonResult in the constructor for Athlete
@@ -138,8 +146,12 @@ public class OrienteeringSeriesScoreCalculator {
             }
         }
         
+        int totalNumberOfRaces = eventsList.size();
+        
+        int numberOfRaces = (int) Math.floor((double)totalNumberOfRaces / 2.0) + 1;
+        
         // We've been through all the xml files now add up each athletes scores
-        for (Athlete athlete : overallResultList) athlete.totalScore(currentYear);
+        for (Athlete athlete : overallResultList) athlete.totalScore(numberOfRaces);
         
         // And sort (decreasing
         Collections.sort(overallResultList, new Comparator<Athlete>() {
@@ -155,6 +167,8 @@ public class OrienteeringSeriesScoreCalculator {
         String htmlResults = resultsPrinter.finaliseTable();  
         
         int ijk = 0;
+        
+        // Now calculate club scores
     }
 
     private static String getFileExtension(File file) {

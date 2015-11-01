@@ -54,7 +54,7 @@ public class Athlete {
         Collections.sort(results, new Comparator<Result>() {
             @Override
             public int compare(Result r1, Result r2) {
-                return r1.score - r2.score;
+                return r2.score - r1.score;
             }
         });
         

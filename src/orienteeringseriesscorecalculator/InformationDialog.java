@@ -13,8 +13,19 @@ import javax.swing.JOptionPane;
  */
 public class InformationDialog {
 
-    public static void infoBox(String infoMessage, String titleBar)
-    {
+    public static void infoBox(String infoMessage, String titleBar) {
         JOptionPane.showMessageDialog(null, infoMessage, "Orienteering Series Score Calculator: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public static String selectionBox(String[] options, int defaultOption, String comment, String titleBar) {
+        String selection = (String) JOptionPane.showInputDialog(null,
+                comment,
+                titleBar,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[defaultOption]);
+
+        return selection;
     }
 }

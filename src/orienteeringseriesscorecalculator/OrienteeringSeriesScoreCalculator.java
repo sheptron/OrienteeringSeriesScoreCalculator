@@ -146,9 +146,20 @@ public class OrienteeringSeriesScoreCalculator {
             }
         }
         
+        // Decide How Many Races to Include
         int totalNumberOfRaces = eventsList.size();
         
         int numberOfRaces = (int) Math.floor((double)totalNumberOfRaces / 2.0) + 1;
+        
+        String[] options = new String[totalNumberOfRaces];
+        for (int k=0; k<totalNumberOfRaces; k++) options[k] = String.valueOf(k+1);
+        
+        String userSelection = InformationDialog.selectionBox(options, numberOfRaces-1, "Select","How Many Races Count?");
+        
+        if(userSelection != null){
+            // If the user didn't press cancel, then check what they selected
+            numberOfRaces = Integer.parseInt(userSelection);
+        }
         
         // We've been through all the xml files now add up each athletes scores
         for (Athlete athlete : overallResultList) athlete.totalScore(numberOfRaces);
@@ -166,9 +177,13 @@ public class OrienteeringSeriesScoreCalculator {
         resultsPrinter.writeResults(overallResultList);
         String htmlResults = resultsPrinter.finaliseTable();  
         
-        int ijk = 0;
+        // Build Filename
+        String outFilename = folder.toString() + "/" + currentYear + "_Twilight_Series_Results_after_Round_" + totalNumberOfRaces + "_Best_" + numberOfRaces + ".html";
         
-        // Now calculate club scores
+        
+        StringToFile.write(outFilename, htmlResults);
+        
+        InformationDialog.infoBox(outFilename, "Results Written To ...");
     }
 
     private static String getFileExtension(File file) {

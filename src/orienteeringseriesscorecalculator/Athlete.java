@@ -23,13 +23,15 @@ public class Athlete {
     public enum Sex {Male, Female, YesPlease};
     
     public ArrayList<Result> results;
-    public String name;
-    public int yearOfBirth;
-    public int controlCard;
-    public int id;          // id and/or controlCard could be used for checking duplicates
-    public String club;     // TODO
-    public Sex sex;
-    public double currentHandicap;  // Current - just to be clear that the handicap in a Result may be different
+    public String name = "";
+    String firstName = "";
+    String surname = "";
+    public int yearOfBirth = 0;
+    public int controlCard = 0;
+    public int id = 0;                      // id and/or controlCard could be used for checking duplicates
+    public String club = "";                // TODO
+    public Sex sex = Sex.YesPlease;
+    public double currentHandicap = 1.0;    // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
   
     Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id, String _club) {
@@ -40,6 +42,18 @@ public class Athlete {
         name = firstName + " " + lastName;
         id = _id;
         club = _club;
+    }
+    
+    Athlete (PersonResult personResult) {
+        yearOfBirth = personResult.person.getBirthYear();
+        controlCard = personResult.result.controlCard;                 
+        results = new ArrayList<Result>();
+        sex = personResult.person.getAthleteSex();
+        firstName = personResult.person.name.given;
+        surname = personResult.person.name.family;
+        name = firstName + " " + surname;
+        id = personResult.person.id;
+        club = personResult.organisation.getShortName();
     }
     
     public void addResult(Result result){
@@ -83,7 +97,12 @@ public class Athlete {
         
         int y0 = currentYear - 86;
         
-        if (yearOfBirth < y0){
+        if (yearOfBirth == 0){
+            // YOB unknown so assume elite
+            if (sex == Athlete.Sex.Female) handicap = 0.8;
+            else handicap = 1.0; 
+        }
+        else if (yearOfBirth < y0){
             if (sex == Athlete.Sex.Female) handicap = 0.3488;
             else handicap = 0.436;           
         }
@@ -131,15 +150,45 @@ public class Athlete {
         }
         Athlete athlete = (Athlete) obj;
         
+        if (this.surname.equals("Needham") && this.firstName.startsWith("Z")){
+            int kkk = 0;
+        }
+        
+        // Names Identical
+        boolean surnameMatch = this.surname.equalsIgnoreCase(athlete.surname);
+        boolean fullNameMatch = this.name.equalsIgnoreCase(athlete.name);  
+        // Eventor ID Number (athletes without an ID will be 0)
+        boolean idMatch = (this.id == athlete.id) && (this.id != 0);
+        boolean yobMatch = (this.yearOfBirth == athlete.yearOfBirth) && (this.yearOfBirth != 0);
+        
+        
+        return idMatch || (fullNameMatch && yobMatch); // Log
+        
+        /*
         // TODO : test for possible duplicates here...
         if (this.name.equalsIgnoreCase(athlete.name)){
-            // log to file
+        // log to file
+        }
+        if (this.surname.equalsIgnoreCase(athlete.surname)){
+        // Surnames are the same now have a look at first names
+        // First names have 3 letters in a row that are common
+        for (int k=0; k<this.firstName.length()-2; k++){
+        String s1 = this.firstName.substring(k, k+3);
+        if (athlete.firstName.contains(s1)){
+        }
+        }
+        // First names start with same letter
+        if (this.firstName.startsWith(athlete.firstName.substring(0, 1))){
+        }
         }
         if (this.controlCard == athlete.controlCard){
-            // log to file
+        // log to file
         }
-
-        return this.name.equalsIgnoreCase(athlete.name); // this.id == athlete.id;
+        if (this.id == athlete.id){
+        // Possible duplicate
+        }
+        return this.name.equalsIgnoreCase(athlete.name);
+         */
     }
     /*public class athleteScoreComparator implements Comparator<Athlete> {
     
@@ -149,4 +198,10 @@ public class Athlete {
             return (athlete1.results.get(0).handicappedSpeed > athlete2.results.get(0).handicappedSpeed) ? 1 : 0;
         }  
     }*/
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
 }

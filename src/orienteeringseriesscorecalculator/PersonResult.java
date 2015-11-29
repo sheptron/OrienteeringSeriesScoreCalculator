@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class PersonResult {
     
-    int entryId;
-    Person person;
+    int entryId = 0;
+    Person person = new Person();
     xResult result;
-    Organisation organisation;
+    Organisation organisation = new Organisation();
     
     public PersonResult()
     {

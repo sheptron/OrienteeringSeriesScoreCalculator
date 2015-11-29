@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Organisation {
     
-    String name;
-    String shortName;
+    String name = "";
+    String shortName = "";
     
-    String id;
+    String id = "";
     
     public String getName(){
         return this.name;

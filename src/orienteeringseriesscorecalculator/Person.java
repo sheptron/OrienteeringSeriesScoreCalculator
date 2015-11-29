@@ -7,7 +7,6 @@ package orienteeringseriesscorecalculator;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import static orienteeringseriesscorecalculator.OrienteeringSeriesScoreCalculator.currentYear;
 
 /**
  *
@@ -15,9 +14,9 @@ import static orienteeringseriesscorecalculator.OrienteeringSeriesScoreCalculato
  */
 public class Person {
     
-    int id;
-    Name name;
-    String birthDate;
+    int id = 0;
+    Name name = new Name();
+    String birthDate = "0000-00-00";
     
     String sex;
     
@@ -70,12 +69,8 @@ public class Person {
         this.birthDate = birthDate;
     }
     
-    public int getBirthYear(){
+    public int getBirthYear(){      
         
-        if(birthDate == null) {
-            return currentYear - 27;
-        } 
-          
         return Integer.parseInt(birthDate.substring(0, 4));
     }
     

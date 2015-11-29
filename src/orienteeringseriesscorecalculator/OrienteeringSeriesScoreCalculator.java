@@ -91,7 +91,7 @@ public class OrienteeringSeriesScoreCalculator {
 
                         for (PersonResult personResult : resultList.classResult[jj].personResult) {
 
-                            Athlete.Sex sex = personResult.person.getAthleteSex();
+                            /*Athlete.Sex sex = personResult.person.getAthleteSex();
                             int controlCard = personResult.result.controlCard;
                             int birthYear = personResult.person.getBirthYear();
                             String firstName = personResult.person.name.given;
@@ -100,7 +100,8 @@ public class OrienteeringSeriesScoreCalculator {
                             String club =  personResult.organisation.getShortName();
                             if (club == null) club = "";
                             // TODO just use a PersonResult in the constructor for Athlete
-                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id, club);
+                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id, club);*/
+                            Athlete athlete = new Athlete(personResult);
 
                             double currentHandicap = athlete.calculateHandicap(currentYear);
 
@@ -132,13 +133,16 @@ public class OrienteeringSeriesScoreCalculator {
                     // Now merge with previous raceResultLists                    
                     for (Athlete raceAthlete : raceResultList) {
                         if (overallResultList.contains(raceAthlete)) {
-                            for (Athlete overallAthlete : overallResultList) {
+                            
+                            int k = overallResultList.indexOf(raceAthlete);
+                            overallResultList.get(k).results.add(raceAthlete.results.get(0));
+                            /*for (Athlete overallAthlete : overallResultList) {
                                 if (raceAthlete.equals(overallAthlete)) {
                                     // Add this result to overallAthlete
                                     overallAthlete.results.add(raceAthlete.results.get(0));
                                     break;
                                 }
-                            }
+                            }*/
                         }
                         else overallResultList.add(raceAthlete);
                     }

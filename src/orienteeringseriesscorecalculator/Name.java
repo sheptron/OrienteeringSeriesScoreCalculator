@@ -13,8 +13,8 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Name {
     
-    String family;
-    String given;
+    String family = "";
+    String given = "";
     
     public String getFamily(){
         return family;

@@ -11,15 +11,15 @@ package orienteeringseriesscorecalculator;
  */
 public class Result {
         
-    public int raceNumber;
-    public String raceDate;
-    public String raceName;
-    public int distanceInMetres;
-    public int timeInSeconds;
-    public int handicappedSpeed;     // Seconds/10km (equates to seconds/km rounded to 2 decimal places)
+    public int raceNumber = 0;
+    public String raceDate = "";
+    public String raceName = "";
+    public int distanceInMetres = 1;    // Don't make it zero just to ensure no divide-by-zero errors
+    public int timeInSeconds = 0;   
+    public int handicappedSpeed = 0;        // Seconds/10km (equates to seconds/km rounded to 2 decimal places)
     public int handicappedPlace = 125;
     public int score = 0;
-    public double handicap;
+    public double handicap = 1.0;           // Assume the worst (no handicap)
     
     Result(Event event, int _timeInSeconds, int _distanceInMetres, double _handicap){
         

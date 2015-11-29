@@ -1,0 +1,3577 @@
+<?xml version="1.0" encoding="windows-1252"?>
+ <ResultList xmlns="http://www.orienteering.org/datastandard/3.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ iofVersion="3.0"
+ createTime="2015-11-29T12:08:14.776"
+ creator="SportSoftware OE2010 (M) V.11.0">
+<Event>
+<Name>2015-11-25RSTS_7_MtWanniassa_Final</Name>
+</Event>
+<ClassResult>
+<Class>
+<Id>1</Id>
+<Name>Orange 1</Name>
+</Class>
+<Course>
+<Id>1</Id>
+<Name>Orange 1</Name>
+<Length>4880</Length>
+<Climb>0</Climb>
+<NumberOfControls>16</NumberOfControls>
+</Course>
+<PersonResult>
+<Person sex="M">
+<Id>326</Id>
+<Name>
+<Family>Shepherd</Family>
+<Given>David</Given>
+</Name>
+<BirthDate>1977-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:32:06.000</StartTime>
+<FinishTime>2015-11-25T19:03:41.000</FinishTime>
+<Time>1895</Time>
+<TimeBehind>0</TimeBehind>
+<Position>1</Position>
+<Status>OK</Status>
+<ControlCard>1006144</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3269</Id>
+<Name>
+<Family>de Jongh</Family>
+<Given>Paul</Given>
+</Name>
+<BirthDate>1993-01-01</BirthDate>
+<Address>
+<CareOf>de Jongh Paul</CareOf>
+<Street>7 Fitzherbert Place</Street>
+<ZipCode>2617</ZipCode>
+<City>Bruce</City>
+</Address>
+<Contact type="PhoneNumber">6253-4141</Contact>
+<Contact type="EmailAddress">dejongh@internode.on.net</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>133</BibNumber>
+<StartTime>2015-11-25T18:15:45.000</StartTime>
+<FinishTime>2015-11-25T18:50:47.000</FinishTime>
+<Time>2102</Time>
+<TimeBehind>207</TimeBehind>
+<Position>2</Position>
+<Status>OK</Status>
+<ControlCard>364412</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5160</Id>
+<Name>
+<Family>Cuthbert</Family>
+<Given>Paul</Given>
+</Name>
+<BirthDate>1972-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:59:53.000</StartTime>
+<FinishTime>2015-11-25T18:36:18.000</FinishTime>
+<Time>2185</Time>
+<TimeBehind>290</TimeBehind>
+<Position>3</Position>
+<Status>OK</Status>
+<ControlCard>9200624</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>764</Id>
+<Name>
+<Family>Melhuish</Family>
+<Given>Stephen</Given>
+</Name>
+<BirthDate>1997-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:08:41.000</StartTime>
+<FinishTime>2015-11-25T18:45:07.000</FinishTime>
+<Time>2186</Time>
+<TimeBehind>291</TimeBehind>
+<Position>4</Position>
+<Status>OK</Status>
+<ControlCard>9005186</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2403</Id>
+<Name>
+<Family>Lane</Family>
+<Given>Ciaran</Given>
+</Name>
+<BirthDate>1997-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:20:59.000</StartTime>
+<FinishTime>2015-11-25T18:58:35.000</FinishTime>
+<Time>2256</Time>
+<TimeBehind>361</TimeBehind>
+<Position>5</Position>
+<Status>OK</Status>
+<ControlCard>9101023</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2627</Id>
+<Name>
+<Family>Barnett</Family>
+<Given>Ewan</Given>
+</Name>
+<BirthDate>1998-01-01</BirthDate>
+<Address>
+<CareOf>Barnett Ewan</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>139</BibNumber>
+<StartTime>2015-11-25T18:48:10.000</StartTime>
+<FinishTime>2015-11-25T19:26:28.000</FinishTime>
+<Time>2298</Time>
+<TimeBehind>403</TimeBehind>
+<Position>6</Position>
+<Status>OK</Status>
+<ControlCard>2020618</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>305</Id>
+<Name>
+<Family>Poland</Family>
+<Given>Noah</Given>
+</Name>
+<BirthDate>2001-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:12:16.000</StartTime>
+<FinishTime>2015-11-25T18:52:26.000</FinishTime>
+<Time>2410</Time>
+<TimeBehind>515</TimeBehind>
+<Position>7</Position>
+<Status>OK</Status>
+<ControlCard>7012001</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Crane</Family>
+<Given>Grace</Given>
+</Name>
+<BirthDate>1983-01-01</BirthDate>
+<Address>
+<CareOf>Crane Grace</CareOf>
+<Street>31 Beasley St</Street>
+<ZipCode>2607</ZipCode>
+<City>Torrens</City>
+</Address>
+<Contact type="EmailAddress">grace.elson@gmail.com</Contact>
+</Person>
+<Organisation>
+<Id>58</Id>
+<Name>AL T</Name>
+<ShortName>AL T</ShortName>
+<Country code="TAS">TAS</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>87</BibNumber>
+<StartTime>2015-11-25T17:50:53.000</StartTime>
+<FinishTime>2015-11-25T18:32:41.000</FinishTime>
+<Time>2508</Time>
+<TimeBehind>613</TimeBehind>
+<Position>8</Position>
+<Status>OK</Status>
+<ControlCard>1006143</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2642</Id>
+<Name>
+<Family>Piiroinen</Family>
+<Given>Ari</Given>
+</Name>
+<BirthDate>1963-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:23:37.000</StartTime>
+<FinishTime>2015-11-25T19:05:33.000</FinishTime>
+<Time>2516</Time>
+<TimeBehind>621</TimeBehind>
+<Position>9</Position>
+<Status>OK</Status>
+<ControlCard>2024109</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2643</Id>
+<Name>
+<Family>Piiroinen</Family>
+<Given>Jesse</Given>
+</Name>
+<BirthDate>1998-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:10:33.000</StartTime>
+<FinishTime>2015-11-25T18:52:32.000</FinishTime>
+<Time>2519</Time>
+<TimeBehind>624</TimeBehind>
+<Position>10</Position>
+<Status>OK</Status>
+<ControlCard>2014120</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Bailie</Family>
+<Given>James</Given>
+</Name>
+<BirthDate>1994-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>19</Id>
+<Name>MC A</Name>
+<ShortName>MC A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>107</BibNumber>
+<StartTime>2015-11-25T17:49:17.000</StartTime>
+<FinishTime>2015-11-25T18:31:57.000</FinishTime>
+<Time>2560</Time>
+<TimeBehind>665</TimeBehind>
+<Position>11</Position>
+<Status>OK</Status>
+<ControlCard>7204442</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3406</Id>
+<Name>
+<Family>Stocks</Family>
+<Given>Ryan</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:12:17.000</StartTime>
+<FinishTime>2015-11-25T18:55:02.000</FinishTime>
+<Time>2565</Time>
+<TimeBehind>670</TimeBehind>
+<Position>12</Position>
+<Status>OK</Status>
+<ControlCard>2036809</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2066</Id>
+<Name>
+<Family>Walker</Family>
+<Given>Phil</Given>
+</Name>
+<BirthDate>1958-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:19:50.000</StartTime>
+<FinishTime>2015-11-25T18:02:44.000</FinishTime>
+<Time>2574</Time>
+<TimeBehind>679</TimeBehind>
+<Position>13</Position>
+<Status>OK</Status>
+<ControlCard>9101021</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>240</Id>
+<Name>
+<Family>Jones</Family>
+<Given>Allison</Given>
+</Name>
+<BirthDate>1976-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:56:03.000</StartTime>
+<FinishTime>2015-11-25T18:39:00.000</FinishTime>
+<Time>2577</Time>
+<TimeBehind>682</TimeBehind>
+<Position>14</Position>
+<Status>OK</Status>
+<ControlCard>1200903</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>4961</Id>
+<Name>
+<Family>Needham</Family>
+<Given>Zac</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:12:16.000</StartTime>
+<FinishTime>2015-11-25T18:56:29.000</FinishTime>
+<Time>2653</Time>
+<TimeBehind>758</TimeBehind>
+<Position>15</Position>
+<Status>OK</Status>
+<ControlCard>2053120</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Euston</Family>
+<Given>Mark</Given>
+</Name>
+<BirthDate>1981-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>19</Id>
+<Name>MC A</Name>
+<ShortName>MC A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>62</BibNumber>
+<StartTime>2015-11-25T16:53:25.000</StartTime>
+<FinishTime>2015-11-25T17:37:44.000</FinishTime>
+<Time>2659</Time>
+<TimeBehind>764</TimeBehind>
+<Position>16</Position>
+<Status>OK</Status>
+<ControlCard>41177</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>304</Id>
+<Name>
+<Family>Poland</Family>
+<Given>David</Given>
+</Name>
+<BirthDate>1959-01-01</BirthDate>
+<Address>
+<CareOf>Poland David</CareOf>
+<Street>66 Vasey Cres</Street>
+<ZipCode>2612</ZipCode>
+<City>Campbell</City>
+</Address>
+<Contact type="PhoneNumber">6247-8785</Contact>
+<Contact type="EmailAddress">todavid@webone.com.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>101</BibNumber>
+<StartTime>2015-11-25T18:01:33.000</StartTime>
+<FinishTime>2015-11-25T18:48:08.000</FinishTime>
+<Time>2795</Time>
+<TimeBehind>900</TimeBehind>
+<Position>17</Position>
+<Status>OK</Status>
+<ControlCard>1600561</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>303</Id>
+<Name>
+<Family>Brown</Family>
+<Given>Toni</Given>
+</Name>
+<BirthDate>1962-01-01</BirthDate>
+<Address>
+<CareOf>Brown Toni</CareOf>
+<Street>66 Vasey Cres</Street>
+<ZipCode>2612</ZipCode>
+<City>Campbell</City>
+</Address>
+<Contact type="PhoneNumber">6247-8785</Contact>
+<Contact type="EmailAddress">todavid@webone.com.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>96</BibNumber>
+<StartTime>2015-11-25T17:49:24.000</StartTime>
+<FinishTime>2015-11-25T18:37:08.000</FinishTime>
+<Time>2864</Time>
+<TimeBehind>969</TimeBehind>
+<Position>18</Position>
+<Status>OK</Status>
+<ControlCard>1600571</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5135</Id>
+<Name>
+<Family>Fifield</Family>
+<Given>Davin</Given>
+</Name>
+<BirthDate>1971-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:46:04.000</StartTime>
+<FinishTime>2015-11-25T18:34:16.000</FinishTime>
+<Time>2892</Time>
+<TimeBehind>997</TimeBehind>
+<Position>19</Position>
+<Status>OK</Status>
+<ControlCard>9102060</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5973</Id>
+<Name>
+<Family>Jacobs</Family>
+<Given>Trevor</Given>
+</Name>
+<BirthDate>1951-01-01</BirthDate>
+<Address>
+<CareOf>Jacobs Trevor</CareOf>
+<Street>7 Dovey Place</Street>
+<ZipCode>2615</ZipCode>
+<City>Latham</City>
+</Address>
+<Contact type="PhoneNumber">6254-7177</Contact>
+<Contact type="EmailAddress">trevor.jacobs@mdba.gov.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>51</BibNumber>
+<StartTime>2015-11-25T18:21:36.000</StartTime>
+<FinishTime>2015-11-25T19:11:46.000</FinishTime>
+<Time>3010</Time>
+<TimeBehind>1115</TimeBehind>
+<Position>20</Position>
+<Status>OK</Status>
+<ControlCard>200063</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>van der Ploeg</Family>
+<Given>Mark</Given>
+</Name>
+<BirthDate>1985-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>130</BibNumber>
+<StartTime>2015-11-25T18:08:28.000</StartTime>
+<FinishTime>2015-11-25T18:59:03.000</FinishTime>
+<Time>3035</Time>
+<TimeBehind>1140</TimeBehind>
+<Position>21</Position>
+<Status>OK</Status>
+<ControlCard>44191</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5586</Id>
+<Name>
+<Family>Heyes</Family>
+<Given>James</Given>
+</Name>
+<BirthDate>1972-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>94</BibNumber>
+<StartTime>2015-11-25T17:41:39.000</StartTime>
+<FinishTime>2015-11-25T18:32:20.000</FinishTime>
+<Time>3041</Time>
+<TimeBehind>1146</TimeBehind>
+<Position>22</Position>
+<Status>OK</Status>
+<ControlCard>1400718</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>8309</Id>
+<Name>
+<Family>Johnson</Family>
+<Given>Andrew</Given>
+</Name>
+<BirthDate>1970-01-01</BirthDate>
+<Address>
+<CareOf>Johnson Andrew</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>82</BibNumber>
+<StartTime>2015-11-25T17:13:58.000</StartTime>
+<FinishTime>2015-11-25T18:05:00.000</FinishTime>
+<Time>3062</Time>
+<TimeBehind>1167</TimeBehind>
+<Position>23</Position>
+<Status>OK</Status>
+<ControlCard>2076526</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3275</Id>
+<Name>
+<Family>Piiroinen</Family>
+<Given>Christian</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:26:45.000</StartTime>
+<FinishTime>2015-11-25T19:18:13.000</FinishTime>
+<Time>3088</Time>
+<TimeBehind>1193</TimeBehind>
+<Position>24</Position>
+<Status>OK</Status>
+<ControlCard>2074219</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3284</Id>
+<Name>
+<Family>Davies</Family>
+<Given>Dean</Given>
+</Name>
+<BirthDate>1989-01-01</BirthDate>
+<Address>
+<CareOf>Davies Dean</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>109</BibNumber>
+<StartTime>2015-11-25T17:55:49.000</StartTime>
+<FinishTime>2015-11-25T18:47:59.000</FinishTime>
+<Time>3130</Time>
+<TimeBehind>1235</TimeBehind>
+<Position>25</Position>
+<Status>OK</Status>
+<ControlCard>41104</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>2136</Id>
+<Name>
+<Family>Melhuish</Family>
+<Given>Tara</Given>
+</Name>
+<BirthDate>1999-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:00:24.000</StartTime>
+<FinishTime>2015-11-25T18:52:53.000</FinishTime>
+<Time>3149</Time>
+<TimeBehind>1254</TimeBehind>
+<Position>26</Position>
+<Status>OK</Status>
+<ControlCard>2020606</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Benz</Family>
+<Given>Florian</Given>
+</Name>
+<BirthDate>1979-01-01</BirthDate>
+<Address>
+<CareOf>Benz Florian</CareOf>
+</Address>
+</Person>
+<Result raceNumber="1">
+<BibNumber>118</BibNumber>
+<StartTime>2015-11-25T18:02:03.000</StartTime>
+<FinishTime>2015-11-25T18:54:45.000</FinishTime>
+<Time>3162</Time>
+<TimeBehind>1267</TimeBehind>
+<Position>27</Position>
+<Status>OK</Status>
+<ControlCard>44265</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5102</Id>
+<Name>
+<Family>Wilson</Family>
+<Given>Greg</Given>
+</Name>
+<BirthDate>1970-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>132</BibNumber>
+<StartTime>2015-11-25T18:05:46.000</StartTime>
+<FinishTime>2015-11-25T18:59:58.000</FinishTime>
+<Time>3252</Time>
+<TimeBehind>1357</TimeBehind>
+<Position>28</Position>
+<Status>OK</Status>
+<ControlCard>9181070</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2626</Id>
+<Name>
+<Family>Barnett</Family>
+<Given>Bruce</Given>
+</Name>
+<BirthDate>1963-01-01</BirthDate>
+<Address>
+<CareOf>Barnett Bruce</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>141</BibNumber>
+<StartTime>2015-11-25T18:40:02.000</StartTime>
+<FinishTime>2015-11-25T19:34:37.000</FinishTime>
+<Time>3275</Time>
+<TimeBehind>1380</TimeBehind>
+<Position>29</Position>
+<Status>OK</Status>
+<ControlCard>2020619</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>8352</Id>
+<Name>
+<Family>Walker</Family>
+<Given>Kristen</Given>
+</Name>
+<BirthDate>1989-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:32:28.000</StartTime>
+<FinishTime>2015-11-25T18:27:21.000</FinishTime>
+<Time>3293</Time>
+<TimeBehind>1398</TimeBehind>
+<Position>30</Position>
+<Status>OK</Status>
+<ControlCard>200087</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2087</Id>
+<Name>
+<Family>Burt</Family>
+<Given>Michael</Given>
+</Name>
+<BirthDate>1958-01-01</BirthDate>
+<Address>
+<CareOf>Burt Michael</CareOf>
+<Street>58 Melrose Mews</Street>
+<ZipCode>2606</ZipCode>
+<City>Chifley</City>
+</Address>
+<Contact type="EmailAddress">michael.burt@aga.gov.au</Contact>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>136</BibNumber>
+<StartTime>2015-11-25T18:19:19.000</StartTime>
+<FinishTime>2015-11-25T19:15:07.000</FinishTime>
+<Time>3348</Time>
+<TimeBehind>1453</TimeBehind>
+<Position>31</Position>
+<Status>OK</Status>
+<ControlCard>9200884</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Jillard</Family>
+<Given>Mark</Given>
+</Name>
+<BirthDate>1982-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>80</BibNumber>
+<StartTime>2015-11-25T17:11:40.000</StartTime>
+<FinishTime>2015-11-25T18:08:55.000</FinishTime>
+<Time>3435</Time>
+<TimeBehind>1540</TimeBehind>
+<Position>32</Position>
+<Status>OK</Status>
+<ControlCard>41196</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2402</Id>
+<Name>
+<Family>Lane</Family>
+<Given>Greg</Given>
+</Name>
+<BirthDate>1969-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:20:24.000</StartTime>
+<FinishTime>2015-11-25T19:18:01.000</FinishTime>
+<Time>3457</Time>
+<TimeBehind>1562</TimeBehind>
+<Position>33</Position>
+<Status>OK</Status>
+<ControlCard>364417</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>5746</Id>
+<Name>
+<Family>Calver</Family>
+<Given>Bronwyn</Given>
+</Name>
+<BirthDate>1969-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:05:56.000</StartTime>
+<FinishTime>2015-11-25T19:03:58.000</FinishTime>
+<Time>3482</Time>
+<TimeBehind>1587</TimeBehind>
+<Position>34</Position>
+<Status>OK</Status>
+<ControlCard>409742</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>382</Id>
+<Name>
+<Family>Wood</Family>
+<Given>Geoff</Given>
+</Name>
+<BirthDate>1950-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:33:49.000</StartTime>
+<FinishTime>2015-11-25T18:33:40.000</FinishTime>
+<Time>3591</Time>
+<TimeBehind>1696</TimeBehind>
+<Position>35</Position>
+<Status>OK</Status>
+<ControlCard>200093</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>8338</Id>
+<Name>
+<Family>Del Dot</Family>
+<Given>Daniel</Given>
+</Name>
+<BirthDate>1987-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:47:35.000</StartTime>
+<FinishTime>2015-11-25T18:47:41.000</FinishTime>
+<Time>3606</Time>
+<TimeBehind>1711</TimeBehind>
+<Position>36</Position>
+<Status>OK</Status>
+<ControlCard>2086748</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>640</Id>
+<Name>
+<Family>Harding</Family>
+<Given>Carol</Given>
+</Name>
+<BirthDate>1960-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:29:53.000</StartTime>
+<FinishTime>2015-11-25T18:30:40.000</FinishTime>
+<Time>3647</Time>
+<TimeBehind>1752</TimeBehind>
+<Position>37</Position>
+<Status>OK</Status>
+<ControlCard>2038395</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>1201</Id>
+<Name>
+<Family>Jenkins</Family>
+<Given>David</Given>
+</Name>
+<BirthDate>1957-01-01</BirthDate>
+<Address>
+<CareOf>Jenkins David</CareOf>
+<Street>3 Ringarooma Circle</Street>
+<ZipCode>2914</ZipCode>
+<City>Amaroo</City>
+</Address>
+<Contact type="PhoneNumber">0262 424 408</Contact>
+<Contact type="EmailAddress">davidjenkins@grapevine.net.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:07:09.000</StartTime>
+<FinishTime>2015-11-25T19:11:26.000</FinishTime>
+<Time>3857</Time>
+<TimeBehind>1962</TimeBehind>
+<Position>38</Position>
+<Status>OK</Status>
+<ControlCard>2036806</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>639</Id>
+<Name>
+<Family>Harding</Family>
+<Given>John</Given>
+</Name>
+<BirthDate>1953-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:10:16.000</StartTime>
+<FinishTime>2015-11-25T19:14:37.000</FinishTime>
+<Time>3861</Time>
+<TimeBehind>1966</TimeBehind>
+<Position>39</Position>
+<Status>OK</Status>
+<ControlCard>2038394</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>458</Id>
+<Name>
+<Family>Jones</Family>
+<Given>Bill</Given>
+</Name>
+<BirthDate>1950-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:05:27.000</StartTime>
+<FinishTime>2015-11-25T18:10:01.000</FinishTime>
+<Time>3874</Time>
+<TimeBehind>1979</TimeBehind>
+<Position>40</Position>
+<Status>OK</Status>
+<ControlCard>1602092</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3260</Id>
+<Name>
+<Family>Antcliff</Family>
+<Given>Peter</Given>
+</Name>
+<BirthDate>1964-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:24:35.000</StartTime>
+<FinishTime>2015-11-25T19:30:28.000</FinishTime>
+<Time>3953</Time>
+<TimeBehind>2058</TimeBehind>
+<Position>41</Position>
+<Status>OK</Status>
+<ControlCard>2057046</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5327</Id>
+<Name>
+<Family>Cheffers</Family>
+<Given>Andrew</Given>
+</Name>
+<BirthDate>1965-01-01</BirthDate>
+<Address>
+<CareOf>Cheffers Andrew</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>20</Id>
+<Name>WE A</Name>
+<ShortName>WE A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>77</BibNumber>
+<StartTime>2015-11-25T17:20:57.000</StartTime>
+<FinishTime>2015-11-25T18:28:21.000</FinishTime>
+<Time>4044</Time>
+<TimeBehind>2149</TimeBehind>
+<Position>42</Position>
+<Status>OK</Status>
+<ControlCard>44258</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>6713</Id>
+<Name>
+<Family>Binder</Family>
+<Given>Monika</Given>
+</Name>
+<BirthDate>1962-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>63</BibNumber>
+<StartTime>2015-11-25T16:51:55.000</StartTime>
+<FinishTime>2015-11-25T18:01:37.000</FinishTime>
+<Time>4182</Time>
+<TimeBehind>2287</TimeBehind>
+<Position>43</Position>
+<Status>OK</Status>
+<ControlCard>2067705</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Cong</Family>
+<Given>Jin</Given>
+</Name>
+<BirthDate>1988-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>19</Id>
+<Name>MC A</Name>
+<ShortName>MC A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>108</BibNumber>
+<StartTime>2015-11-25T17:50:31.000</StartTime>
+<FinishTime>2015-11-25T19:03:51.000</FinishTime>
+<Time>4400</Time>
+<TimeBehind>2505</TimeBehind>
+<Position>44</Position>
+<Status>OK</Status>
+<ControlCard>44253</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Stamell</Family>
+<Given>Melanie</Given>
+</Name>
+<BirthDate>1983-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>19</Id>
+<Name>MC A</Name>
+<ShortName>MC A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>103</BibNumber>
+<StartTime>2015-11-25T17:51:10.000</StartTime>
+<FinishTime>2015-11-25T19:08:20.000</FinishTime>
+<Time>4630</Time>
+<TimeBehind>2735</TimeBehind>
+<Position>45</Position>
+<Status>OK</Status>
+<ControlCard>44274</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+</ClassResult>
+<ClassResult>
+<Class>
+<Id>2</Id>
+<Name>Orange 2</Name>
+</Class>
+<Course>
+<Id>2</Id>
+<Name>Orange 2</Name>
+<Length>3420</Length>
+<Climb>0</Climb>
+<NumberOfControls>10</NumberOfControls>
+</Course>
+<PersonResult>
+<Person sex="M">
+<Id>308</Id>
+<Name>
+<Family>Pedersen</Family>
+<Given>Morten</Given>
+</Name>
+<BirthDate>1968-01-01</BirthDate>
+<Address>
+<CareOf>Pedersen Morten</CareOf>
+<Street>57/215 Aspinall Street</Street>
+<ZipCode>2602</ZipCode>
+<City>Watson</City>
+</Address>
+<Contact type="PhoneNumber">0261 391 128</Contact>
+<Contact type="EmailAddress">morten.pedersen@anu.edu.au</Contact>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>102</BibNumber>
+<StartTime>2015-11-25T17:45:24.000</StartTime>
+<FinishTime>2015-11-25T18:13:52.000</FinishTime>
+<Time>1708</Time>
+<TimeBehind>0</TimeBehind>
+<Position>1</Position>
+<Status>OK</Status>
+<ControlCard>1600575</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>2127</Id>
+<Name>
+<Family>Melhuish</Family>
+<Given>Zoe</Given>
+</Name>
+<BirthDate>2002-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:03:43.000</StartTime>
+<FinishTime>2015-11-25T18:33:55.000</FinishTime>
+<Time>1812</Time>
+<TimeBehind>104</TimeBehind>
+<Position>2</Position>
+<Status>OK</Status>
+<ControlCard>2020620</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>5163</Id>
+<Name>
+<Family>Cuthbert</Family>
+<Given>Ella</Given>
+</Name>
+<BirthDate>2002-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:06:41.000</StartTime>
+<FinishTime>2015-11-25T18:40:36.000</FinishTime>
+<Time>2035</Time>
+<TimeBehind>327</TimeBehind>
+<Position>3</Position>
+<Status>OK</Status>
+<ControlCard>2073072</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>196</Id>
+<Name>
+<Family>Allison</Family>
+<Given>Robert</Given>
+</Name>
+<BirthDate>1947-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T16:57:57.000</StartTime>
+<FinishTime>2015-11-25T17:33:43.000</FinishTime>
+<Time>2146</Time>
+<TimeBehind>438</TimeBehind>
+<Position>4</Position>
+<Status>OK</Status>
+<ControlCard>44144</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>3045</Id>
+<Name>
+<Family>Yamazaki</Family>
+<Given>Miho</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+<Address>
+<CareOf>Yamazaki Miho</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>20</Id>
+<Name>WE A</Name>
+<ShortName>WE A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>76</BibNumber>
+<StartTime>2015-11-25T17:34:32.000</StartTime>
+<FinishTime>2015-11-25T18:10:23.000</FinishTime>
+<Time>2151</Time>
+<TimeBehind>443</TimeBehind>
+<Position>5</Position>
+<Status>OK</Status>
+<ControlCard>2014102</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5090</Id>
+<Name>
+<Family>Wilson</Family>
+<Given>Brendan</Given>
+</Name>
+<BirthDate>2002-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>115</BibNumber>
+<StartTime>2015-11-25T18:07:22.000</StartTime>
+<FinishTime>2015-11-25T18:43:16.000</FinishTime>
+<Time>2154</Time>
+<TimeBehind>446</TimeBehind>
+<Position>6</Position>
+<Status>OK</Status>
+<ControlCard>2052047</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>3305</Id>
+<Name>
+<Family>Hogg</Family>
+<Given>Cathy</Given>
+</Name>
+<BirthDate>1976-01-01</BirthDate>
+<Address>
+<CareOf>Hogg Cathy</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>79</BibNumber>
+<StartTime>2015-11-25T17:23:08.000</StartTime>
+<FinishTime>2015-11-25T17:59:51.000</FinishTime>
+<Time>2203</Time>
+<TimeBehind>495</TimeBehind>
+<Position>7</Position>
+<Status>OK</Status>
+<ControlCard>9200889</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3420</Id>
+<Name>
+<Family>Stocks</Family>
+<Given>David</Given>
+</Name>
+<BirthDate>2003-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:07:23.000</StartTime>
+<FinishTime>2015-11-25T18:44:16.000</FinishTime>
+<Time>2213</Time>
+<TimeBehind>505</TimeBehind>
+<Position>8</Position>
+<Status>OK</Status>
+<ControlCard>2041365</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>2404</Id>
+<Name>
+<Family>Lane</Family>
+<Given>Riley</Given>
+</Name>
+<BirthDate>2002-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:20:16.000</StartTime>
+<FinishTime>2015-11-25T18:57:24.000</FinishTime>
+<Time>2228</Time>
+<TimeBehind>520</TimeBehind>
+<Position>9</Position>
+<Status>OK</Status>
+<ControlCard>200067</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>3215</Id>
+<Name>
+<Family>Young</Family>
+<Given>Kelly</Given>
+</Name>
+<BirthDate>1969-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:18:38.000</StartTime>
+<FinishTime>2015-11-25T18:55:52.000</FinishTime>
+<Time>2234</Time>
+<TimeBehind>526</TimeBehind>
+<Position>10</Position>
+<Status>OK</Status>
+<ControlCard>2073089</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3232</Id>
+<Name>
+<Family>Wilson</Family>
+<Given>Samuel</Given>
+</Name>
+<BirthDate>1982-01-01</BirthDate>
+<Address>
+<CareOf>Wilson Samuel</CareOf>
+<Street>PO BOX 7034</Street>
+<ZipCode>2900</ZipCode>
+<City>TUGGERANONG</City>
+</Address>
+<Contact type="PhoneNumber">0404 974 782</Contact>
+<Contact type="EmailAddress">samuel.h.wilson@gmail.com</Contact>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>121</BibNumber>
+<StartTime>2015-11-25T17:57:13.000</StartTime>
+<FinishTime>2015-11-25T18:34:52.000</FinishTime>
+<Time>2259</Time>
+<TimeBehind>551</TimeBehind>
+<Position>11</Position>
+<Status>OK</Status>
+<ControlCard>1600565</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>8311</Id>
+<Name>
+<Family>Johnson</Family>
+<Given>Tenzing</Given>
+</Name>
+<BirthDate>2001-01-01</BirthDate>
+<Address>
+<CareOf>Johnson Tenzing</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>83</BibNumber>
+<StartTime>2015-11-25T17:14:02.000</StartTime>
+<FinishTime>2015-11-25T17:52:11.000</FinishTime>
+<Time>2289</Time>
+<TimeBehind>581</TimeBehind>
+<Position>12</Position>
+<Status>OK</Status>
+<ControlCard>2076512</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Harrysson</Family>
+<Given>Susanne</Given>
+</Name>
+<BirthDate>1966-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>262</Id>
+<Name>SWE .</Name>
+<ShortName>SWE .</ShortName>
+<Country code="SWE">SWE</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>129</BibNumber>
+<StartTime>2015-11-25T18:08:09.000</StartTime>
+<FinishTime>2015-11-25T18:47:02.000</FinishTime>
+<Time>2333</Time>
+<TimeBehind>625</TimeBehind>
+<Position>13</Position>
+<Status>OK</Status>
+<ControlCard>442091</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2870</Id>
+<Name>
+<Family>Cumming Thom</Family>
+<Given>Andrew</Given>
+</Name>
+<BirthDate>1957-01-01</BirthDate>
+<Address>
+<CareOf>Cumming Thom Andrew</CareOf>
+<Street>3 Pelsart St</Street>
+<ZipCode>2603</ZipCode>
+<City>Red Hill</City>
+</Address>
+<Contact type="PhoneNumber">62867307</Contact>
+<Contact type="EmailAddress">japantrek@grapevine.com.au</Contact>
+</Person>
+<Organisation>
+<Id>20</Id>
+<Name>WE A</Name>
+<ShortName>WE A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>85</BibNumber>
+<StartTime>2015-11-25T17:32:17.000</StartTime>
+<FinishTime>2015-11-25T18:12:17.000</FinishTime>
+<Time>2400</Time>
+<TimeBehind>692</TimeBehind>
+<Position>14</Position>
+<Status>OK</Status>
+<ControlCard>7003011</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>3340</Id>
+<Name>
+<Family>Young</Family>
+<Given>Caitlin</Given>
+</Name>
+<BirthDate>2001-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:15:27.000</StartTime>
+<FinishTime>2015-11-25T18:55:39.000</FinishTime>
+<Time>2412</Time>
+<TimeBehind>704</TimeBehind>
+<Position>15</Position>
+<Status>OK</Status>
+<ControlCard>1602093</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>2405</Id>
+<Name>
+<Family>Lane</Family>
+<Given>Heather</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:20:11.000</StartTime>
+<FinishTime>2015-11-25T19:02:19.000</FinishTime>
+<Time>2528</Time>
+<TimeBehind>820</TimeBehind>
+<Position>16</Position>
+<Status>OK</Status>
+<ControlCard>200068</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>70.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>647</Id>
+<Name>
+<Family>Thompson</Family>
+<Given>Alan</Given>
+</Name>
+<BirthDate>1946-01-01</BirthDate>
+<Address>
+<CareOf>Thompson Alan</CareOf>
+<Street>PO Box 7087</Street>
+<ZipCode>2600</ZipCode>
+<City>Yarralumla</City>
+</Address>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>122</BibNumber>
+<StartTime>2015-11-25T17:56:07.000</StartTime>
+<FinishTime>2015-11-25T18:39:32.000</FinishTime>
+<Time>2605</Time>
+<TimeBehind>897</TimeBehind>
+<Position>17</Position>
+<Status>OK</Status>
+<ControlCard>249556</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2392</Id>
+<Name>
+<Family>Sutton</Family>
+<Given>John</Given>
+</Name>
+<BirthDate>1940-01-01</BirthDate>
+<Address>
+<CareOf>Sutton John</CareOf>
+<Street>72 Arthur Circle</Street>
+<ZipCode>2603</ZipCode>
+<City>Forrest</City>
+</Address>
+<Contact type="PhoneNumber">0262 951 297</Contact>
+<Contact type="EmailAddress">a.jsutton@netspeed.com.au</Contact>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>123</BibNumber>
+<StartTime>2015-11-25T17:59:38.000</StartTime>
+<FinishTime>2015-11-25T18:43:40.000</FinishTime>
+<Time>2642</Time>
+<TimeBehind>934</TimeBehind>
+<Position>18</Position>
+<Status>OK</Status>
+<ControlCard>200094</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2044</Id>
+<Name>
+<Family>Allen</Family>
+<Given>Bryant</Given>
+</Name>
+<BirthDate>1944-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:06:56.000</StartTime>
+<FinishTime>2015-11-25T18:51:02.000</FinishTime>
+<Time>2646</Time>
+<TimeBehind>938</TimeBehind>
+<Position>19</Position>
+<Status>OK</Status>
+<ControlCard>409735</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3238</Id>
+<Name>
+<Family>Kooymans</Family>
+<Given>Aaron</Given>
+</Name>
+<BirthDate>1961-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>71</BibNumber>
+<StartTime>2015-11-25T16:59:55.000</StartTime>
+<FinishTime>2015-11-25T17:45:24.000</FinishTime>
+<Time>2729</Time>
+<TimeBehind>1021</TimeBehind>
+<Position>20</Position>
+<Status>OK</Status>
+<ControlCard>2020607</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>1967</Id>
+<Name>
+<Family>Piiroinen</Family>
+<Given>Pauli</Given>
+</Name>
+<BirthDate>1935-01-01</BirthDate>
+<Address>
+<CareOf>Piiroinen Pauli</CareOf>
+<Street>8 Frayne Pl</Street>
+<ZipCode>2611</ZipCode>
+<City>Stirling</City>
+</Address>
+<Contact type="PhoneNumber">6288-8877</Contact>
+<Contact type="EmailAddress">ppiiroin@bigpond.net.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>44</BibNumber>
+<StartTime>2015-11-25T18:16:15.000</StartTime>
+<FinishTime>2015-11-25T19:03:28.000</FinishTime>
+<Time>2833</Time>
+<TimeBehind>1125</TimeBehind>
+<Position>21</Position>
+<Status>OK</Status>
+<ControlCard>2020617</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>3050</Id>
+<Name>
+<Family>Barnett</Family>
+<Given>Jane</Given>
+</Name>
+<BirthDate>1961-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>119</BibNumber>
+<StartTime>2015-11-25T18:13:21.000</StartTime>
+<FinishTime>2015-11-25T19:02:06.000</FinishTime>
+<Time>2925</Time>
+<TimeBehind>1217</TimeBehind>
+<Position>22</Position>
+<Status>OK</Status>
+<ControlCard>2054787</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>7928</Id>
+<Name>
+<Family>Fisher</Family>
+<Given>Robert</Given>
+</Name>
+<BirthDate>1973-01-01</BirthDate>
+<Address>
+<CareOf>Pulford Lynn</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>74</BibNumber>
+<StartTime>2015-11-25T17:01:18.000</StartTime>
+<FinishTime>2015-11-25T17:50:04.000</FinishTime>
+<Time>2926</Time>
+<TimeBehind>1218</TimeBehind>
+<Position>23</Position>
+<Status>OK</Status>
+<ControlCard>41180</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>6616</Id>
+<Name>
+<Family>Jaugietis</Family>
+<Given>Braeden</Given>
+</Name>
+<BirthDate>2000-01-01</BirthDate>
+<Address>
+<CareOf>Tedeschi Daniel</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>16</Id>
+<Name>GS A</Name>
+<ShortName>GS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>75</BibNumber>
+<StartTime>2015-11-25T17:03:16.000</StartTime>
+<FinishTime>2015-11-25T17:52:13.000</FinishTime>
+<Time>2937</Time>
+<TimeBehind>1229</TimeBehind>
+<Position>24</Position>
+<Status>OK</Status>
+<ControlCard>2050564</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3265</Id>
+<Name>
+<Family>Dabb</Family>
+<Given>Geoffrey</Given>
+</Name>
+<BirthDate>1938-01-01</BirthDate>
+<Address>
+<CareOf>Dabb Geoffrey</CareOf>
+<Street>24 Brockman Street</Street>
+<ZipCode>2604</ZipCode>
+<City>Narrabundah</City>
+</Address>
+<Contact type="PhoneNumber">6295 3449</Contact>
+<Contact type="EmailAddress">gdabb@iinet.net.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>72</BibNumber>
+<StartTime>2015-11-25T17:20:34.000</StartTime>
+<FinishTime>2015-11-25T18:09:50.000</FinishTime>
+<Time>2956</Time>
+<TimeBehind>1248</TimeBehind>
+<Position>25</Position>
+<Status>OK</Status>
+<ControlCard>44109</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>375</Id>
+<Name>
+<Family>Martin</Family>
+<Given>Barbara</Given>
+</Name>
+<BirthDate>1952-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:08:14.000</StartTime>
+<FinishTime>2015-11-25T17:57:48.000</FinishTime>
+<Time>2974</Time>
+<TimeBehind>1266</TimeBehind>
+<Position>26</Position>
+<Status>OK</Status>
+<ControlCard>9523399</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Macken</Family>
+<Given>Michelle</Given>
+</Name>
+<BirthDate>1967-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>164</BibNumber>
+<StartTime>2015-11-25T08:00:00.000</StartTime>
+<FinishTime>2015-11-25T08:50:10.000</FinishTime>
+<Time>3010</Time>
+<TimeBehind>1302</TimeBehind>
+<Position>27</Position>
+<Status>OK</Status>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Leach</Family>
+<Given>Tony</Given>
+</Name>
+<BirthDate>1964-01-01</BirthDate>
+<Address>
+<CareOf>Leach Tony</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>20</Id>
+<Name>WE A</Name>
+<ShortName>WE A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>53</BibNumber>
+<StartTime>2015-11-25T17:37:52.000</StartTime>
+<FinishTime>2015-11-25T18:28:02.000</FinishTime>
+<Time>3010</Time>
+<TimeBehind>1302</TimeBehind>
+<Position>27</Position>
+<Status>OK</Status>
+<ControlCard>2020611</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>197</Id>
+<Name>
+<Family>Allison</Family>
+<Given>Judy</Given>
+</Name>
+<BirthDate>1948-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:50:55.000</StartTime>
+<FinishTime>2015-11-25T18:41:08.000</FinishTime>
+<Time>3013</Time>
+<TimeBehind>1305</TimeBehind>
+<Position>29</Position>
+<Status>OK</Status>
+<ControlCard>1044244</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>5724</Id>
+<Name>
+<Family>Webb</Family>
+<Given>Jennifer</Given>
+</Name>
+<BirthDate>1970-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>11</Id>
+<Name>AO A</Name>
+<ShortName>AO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:56:30.000</StartTime>
+<FinishTime>2015-11-25T18:47:24.000</FinishTime>
+<Time>3054</Time>
+<TimeBehind>1346</TimeBehind>
+<Position>30</Position>
+<Status>OK</Status>
+<ControlCard>9201060</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Allen</Family>
+<Given>Najwa</Given>
+</Name>
+<BirthDate>1994-01-01</BirthDate>
+<Address>
+<CareOf>Allen Najwa</CareOf>
+<Street>40 Bambridge St</Street>
+<ZipCode>2614</ZipCode>
+<City>Weetangera</City>
+</Address>
+<Contact type="PhoneNumber">62549198</Contact>
+<Contact type="EmailAddress">bryant.allen@anu.edu.au</Contact>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>124</BibNumber>
+<StartTime>2015-11-25T18:04:05.000</StartTime>
+<FinishTime>2015-11-25T18:56:02.000</FinishTime>
+<Time>3117</Time>
+<TimeBehind>1409</TimeBehind>
+<Position>31</Position>
+<Status>OK</Status>
+<ControlCard>44187</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>203</Id>
+<Name>
+<Family>Sargeant</Family>
+<Given>Alan</Given>
+</Name>
+<BirthDate>1948-01-01</BirthDate>
+<Address>
+<CareOf>Sargeant Alan</CareOf>
+<Street>9 Pieman Cres</Street>
+<ZipCode>2617</ZipCode>
+<City>Kaleen</City>
+</Address>
+<Contact type="PhoneNumber">0262 412 838</Contact>
+<Contact type="EmailAddress">alansargeant@grapevine.com.au</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>95</BibNumber>
+<StartTime>2015-11-25T17:40:24.000</StartTime>
+<FinishTime>2015-11-25T18:32:29.000</FinishTime>
+<Time>3125</Time>
+<TimeBehind>1417</TimeBehind>
+<Position>32</Position>
+<Status>OK</Status>
+<ControlCard>41213</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2889</Id>
+<Name>
+<Family>Mannering</Family>
+<Given>Hannu</Given>
+</Name>
+<BirthDate>1951-01-01</BirthDate>
+<Address>
+<CareOf>Mannering Hannu</CareOf>
+<Street>45 Gaunson Crescent</Street>
+<ZipCode>2903</ZipCode>
+<City>WANNIASSA</City>
+</Address>
+<Contact type="PhoneNumber">02-62312122</Contact>
+<Contact type="EmailAddress">mannering@mannering.com</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>70</BibNumber>
+<StartTime>2015-11-25T17:06:55.000</StartTime>
+<FinishTime>2015-11-25T17:59:02.000</FinishTime>
+<Time>3127</Time>
+<TimeBehind>1419</TimeBehind>
+<Position>33</Position>
+<Status>OK</Status>
+<ControlCard>44172</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>5164</Id>
+<Name>
+<Family>Gibbs</Family>
+<Given>Harry</Given>
+</Name>
+<BirthDate>2003-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>15</Id>
+<Name>GJ A</Name>
+<ShortName>GJ A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>58</BibNumber>
+<StartTime>2015-11-25T17:14:27.000</StartTime>
+<FinishTime>2015-11-25T18:07:18.000</FinishTime>
+<Time>3171</Time>
+<TimeBehind>1463</TimeBehind>
+<Position>34</Position>
+<Status>OK</Status>
+<ControlCard>2050559</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>7328</Id>
+<Name>
+<Family>Davis</Family>
+<Given>Jodie</Given>
+</Name>
+<BirthDate>1966-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:06:23.000</StartTime>
+<FinishTime>2015-11-25T18:59:27.000</FinishTime>
+<Time>3184</Time>
+<TimeBehind>1476</TimeBehind>
+<Position>35</Position>
+<Status>OK</Status>
+<ControlCard>200084</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>8370</Id>
+<Name>
+<Family>Li</Family>
+<Given>Emily</Given>
+</Name>
+<BirthDate>2001-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>145</BibNumber>
+<StartTime>2015-11-25T17:21:27.000</StartTime>
+<FinishTime>2015-11-25T18:15:53.000</FinishTime>
+<Time>3266</Time>
+<TimeBehind>1558</TimeBehind>
+<Position>36</Position>
+<Status>OK</Status>
+<ControlCard>2086604</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Popple</Family>
+<Given>Michael</Given>
+</Name>
+<BirthDate>1991-01-01</BirthDate>
+<Address>
+<CareOf>Popple Michael</CareOf>
+</Address>
+</Person>
+<Result raceNumber="1">
+<BibNumber>98</BibNumber>
+<StartTime>2015-11-25T17:44:35.000</StartTime>
+<FinishTime>2015-11-25T18:39:57.000</FinishTime>
+<Time>3322</Time>
+<TimeBehind>1614</TimeBehind>
+<Position>37</Position>
+<Status>OK</Status>
+<ControlCard>41147</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Popple</Family>
+<Given>Jeff</Given>
+</Name>
+<BirthDate>1958-01-01</BirthDate>
+<Address>
+<CareOf>Popple Jeff</CareOf>
+</Address>
+</Person>
+<Result raceNumber="1">
+<BibNumber>97</BibNumber>
+<StartTime>2015-11-25T17:44:27.000</StartTime>
+<FinishTime>2015-11-25T18:41:28.000</FinishTime>
+<Time>3421</Time>
+<TimeBehind>1713</TimeBehind>
+<Position>38</Position>
+<Status>OK</Status>
+<ControlCard>44260</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>667</Id>
+<Name>
+<Family>Jones</Family>
+<Given>Kerryne</Given>
+</Name>
+<BirthDate>1950-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T16:46:01.000</StartTime>
+<FinishTime>2015-11-25T17:43:12.000</FinishTime>
+<Time>3431</Time>
+<TimeBehind>1723</TimeBehind>
+<Position>39</Position>
+<Status>OK</Status>
+<ControlCard>9200773</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>5788</Id>
+<Name>
+<Family>Needham</Family>
+<Given>Tamara</Given>
+</Name>
+<BirthDate>2002-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:40:46.000</StartTime>
+<FinishTime>2015-11-25T18:39:13.000</FinishTime>
+<Time>3507</Time>
+<TimeBehind>1799</TimeBehind>
+<Position>40</Position>
+<Status>OK</Status>
+<ControlCard>2053129</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>235</Id>
+<Name>
+<Family>Suominen</Family>
+<Given>John</Given>
+</Name>
+<BirthDate>1943-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>20</Id>
+<Name>WE A</Name>
+<ShortName>WE A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:20:28.000</StartTime>
+<FinishTime>2015-11-25T19:18:57.000</FinishTime>
+<Time>3509</Time>
+<TimeBehind>1801</TimeBehind>
+<Position>41</Position>
+<Status>OK</Status>
+<ControlCard>2014115</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>402</Id>
+<Name>
+<Family>Mouatt</Family>
+<Given>Robert</Given>
+</Name>
+<BirthDate>1939-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:34:50.000</StartTime>
+<FinishTime>2015-11-25T19:35:24.000</FinishTime>
+<Time>3634</Time>
+<TimeBehind>1926</TimeBehind>
+<Position>42</Position>
+<Status>OK</Status>
+<ControlCard>41215</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>100.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Bradley</Family>
+<Given>Joanne</Given>
+</Name>
+<BirthDate>1984-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>166</BibNumber>
+<StartTime>2015-11-25T08:00:00.000</StartTime>
+<FinishTime>2015-11-25T09:03:05.000</FinishTime>
+<Time>3785</Time>
+<TimeBehind>2077</TimeBehind>
+<Position>43</Position>
+<Status>OK</Status>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Cosgriff</Family>
+<Given>Ciaran</Given>
+</Name>
+<BirthDate>1985-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>110</BibNumber>
+<StartTime>2015-11-25T17:51:42.000</StartTime>
+<FinishTime>2015-11-25T18:54:47.000</FinishTime>
+<Time>3785</Time>
+<TimeBehind>2077</TimeBehind>
+<Position>43</Position>
+<Status>OK</Status>
+<ControlCard>41194</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>296</Id>
+<Name>
+<Family>Miethke</Family>
+<Given>Pat</Given>
+</Name>
+<BirthDate>1948-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:24:54.000</StartTime>
+<FinishTime>2015-11-25T18:33:38.000</FinishTime>
+<Time>4124</Time>
+<TimeBehind>2416</TimeBehind>
+<Position>45</Position>
+<Status>OK</Status>
+<ControlCard>1403161</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>5787</Id>
+<Name>
+<Family>Needham</Family>
+<Given>Hind</Given>
+</Name>
+<BirthDate>1969-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>18</Id>
+<Name>RR A</Name>
+<ShortName>RR A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T17:40:46.000</StartTime>
+<FinishTime>2015-11-25T19:02:40.000</FinishTime>
+<Time>4914</Time>
+<TimeBehind>3206</TimeBehind>
+<Position>46</Position>
+<Status>OK</Status>
+<ControlCard>2053105</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+</ClassResult>
+<ClassResult>
+<Class>
+<Id>3</Id>
+<Name>Orange 3</Name>
+</Class>
+<Course>
+<Id>3</Id>
+<Name>Orange 3</Name>
+<Length>2090</Length>
+<Climb>0</Climb>
+<NumberOfControls>9</NumberOfControls>
+</Course>
+<PersonResult>
+<Person sex="M">
+<Id>5103</Id>
+<Name>
+<Family>Wilson</Family>
+<Given>Joseph</Given>
+</Name>
+<BirthDate>2003-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>131</BibNumber>
+<StartTime>2015-11-25T18:07:28.000</StartTime>
+<FinishTime>2015-11-25T18:31:16.000</FinishTime>
+<Time>1428</Time>
+<TimeBehind>0</TimeBehind>
+<Position>1</Position>
+<Status>OK</Status>
+<ControlCard>2052045</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3268</Id>
+<Name>
+<Family>de Jongh</Family>
+<Given>Tom</Given>
+</Name>
+<BirthDate>1959-01-01</BirthDate>
+<Address>
+<CareOf>de Jongh Tom</CareOf>
+<Street>7 Fitzherbert Place</Street>
+<ZipCode>2617</ZipCode>
+<City>Bruce</City>
+</Address>
+<Contact type="PhoneNumber">6253-4141</Contact>
+<Contact type="EmailAddress">dejongh@internode.on.net</Contact>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>134</BibNumber>
+<StartTime>2015-11-25T18:16:51.000</StartTime>
+<FinishTime>2015-11-25T18:47:00.000</FinishTime>
+<Time>1809</Time>
+<TimeBehind>381</TimeBehind>
+<Position>2</Position>
+<Status>OK</Status>
+<ControlCard>364411</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Farquharson</Family>
+<Given>Alice</Given>
+</Name>
+<BirthDate>1988-01-01</BirthDate>
+<Address>
+<CareOf>Wood Oscar</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>167</BibNumber>
+<StartTime>2015-11-25T08:00:00.000</StartTime>
+<FinishTime>2015-11-25T08:32:17.000</FinishTime>
+<Time>1937</Time>
+<TimeBehind>509</TimeBehind>
+<Position>3</Position>
+<Status>OK</Status>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>2076</Id>
+<Name>
+<Family>Wood</Family>
+<Given>Oscar</Given>
+</Name>
+<BirthDate>1988-01-01</BirthDate>
+<Address>
+<CareOf>Wood Oscar</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>117</BibNumber>
+<StartTime>2015-11-25T18:01:50.000</StartTime>
+<FinishTime>2015-11-25T18:34:07.000</FinishTime>
+<Time>1937</Time>
+<TimeBehind>509</TimeBehind>
+<Position>3</Position>
+<Status>OK</Status>
+<ControlCard>200059</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Watson</Family>
+<Given>Brian</Given>
+</Name>
+<BirthDate>1935-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>68</BibNumber>
+<StartTime>2015-11-25T17:09:25.000</StartTime>
+<FinishTime>2015-11-25T17:43:44.000</FinishTime>
+<Time>2059</Time>
+<TimeBehind>631</TimeBehind>
+<Position>5</Position>
+<Status>OK</Status>
+<ControlCard>41192</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>2380</Id>
+<Name>
+<Family>Dow</Family>
+<Given>Coral</Given>
+</Name>
+<BirthDate>1951-01-01</BirthDate>
+<Address>
+<CareOf>Dow Coral</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>86</BibNumber>
+<StartTime>2015-11-25T17:29:57.000</StartTime>
+<FinishTime>2015-11-25T18:04:28.000</FinishTime>
+<Time>2071</Time>
+<TimeBehind>643</TimeBehind>
+<Position>6</Position>
+<Status>OK</Status>
+<ControlCard>2076513</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Perkins</Family>
+<Given>Rebecca</Given>
+</Name>
+<BirthDate>1990-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>137</BibNumber>
+<StartTime>2015-11-25T18:13:54.000</StartTime>
+<FinishTime>2015-11-25T18:52:14.000</FinishTime>
+<Time>2300</Time>
+<TimeBehind>872</TimeBehind>
+<Position>7</Position>
+<Status>OK</Status>
+<ControlCard>41143</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Radford</Family>
+<Given>Rebecca</Given>
+</Name>
+<BirthDate>1990-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>163</BibNumber>
+<StartTime>2015-11-25T08:00:00.000</StartTime>
+<FinishTime>2015-11-25T08:38:20.000</FinishTime>
+<Time>2300</Time>
+<TimeBehind>872</TimeBehind>
+<Position>7</Position>
+<Status>OK</Status>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Braagaard</Family>
+<Given>Dylan</Given>
+</Name>
+<BirthDate>2001-01-01</BirthDate>
+<Address>
+<CareOf>Braagaard Dylan</CareOf>
+</Address>
+</Person>
+<Result raceNumber="1">
+<BibNumber>111</BibNumber>
+<StartTime>2015-11-25T17:49:30.000</StartTime>
+<FinishTime>2015-11-25T18:30:27.000</FinishTime>
+<Time>2457</Time>
+<TimeBehind>1029</TimeBehind>
+<Position>9</Position>
+<Status>OK</Status>
+<ControlCard>2089792</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Cantone</Family>
+<Given>Joe</Given>
+</Name>
+<BirthDate>1986-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>105</BibNumber>
+<StartTime>2015-11-25T17:51:27.000</StartTime>
+<FinishTime>2015-11-25T18:36:20.000</FinishTime>
+<Time>2693</Time>
+<TimeBehind>1265</TimeBehind>
+<Position>10</Position>
+<Status>OK</Status>
+<ControlCard>43137</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Name>
+<Family>Flynn</Family>
+<Given>Sarah</Given>
+</Name>
+<BirthDate>1986-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>88</BibNumber>
+<StartTime>2015-11-25T17:47:36.000</StartTime>
+<FinishTime>2015-11-25T18:33:27.000</FinishTime>
+<Time>2751</Time>
+<TimeBehind>1323</TimeBehind>
+<Position>11</Position>
+<Status>OK</Status>
+<ControlCard>41149</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>3276</Id>
+<Name>
+<Family>Piiroinen</Family>
+<Given>Bryn</Given>
+</Name>
+<BirthDate>2003-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:21:18.000</StartTime>
+<FinishTime>2015-11-25T19:07:31.000</FinishTime>
+<Time>2773</Time>
+<TimeBehind>1345</TimeBehind>
+<Position>12</Position>
+<Status>OK</Status>
+<ControlCard>44123</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Pulsford</Family>
+<Given>Ian</Given>
+</Name>
+<BirthDate>1954-01-01</BirthDate>
+</Person>
+<Result raceNumber="1">
+<BibNumber>126</BibNumber>
+<StartTime>2015-11-25T17:59:29.000</StartTime>
+<FinishTime>2015-11-25T18:49:23.000</FinishTime>
+<Time>2994</Time>
+<TimeBehind>1566</TimeBehind>
+<Position>13</Position>
+<Status>OK</Status>
+<ControlCard>44188</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>7368</Id>
+<Name>
+<Family>Robertson</Family>
+<Given>Matthew</Given>
+</Name>
+<BirthDate>2004-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>15</Id>
+<Name>GJ A</Name>
+<ShortName>GJ A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>93</BibNumber>
+<StartTime>2015-11-25T17:34:16.000</StartTime>
+<FinishTime>2015-11-25T18:25:51.000</FinishTime>
+<Time>3095</Time>
+<TimeBehind>1667</TimeBehind>
+<Position>14</Position>
+<Status>OK</Status>
+<ControlCard>2074213</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>8368</Id>
+<Name>
+<Family>Waddell-Wood</Family>
+<Given>Rosie</Given>
+</Name>
+<BirthDate>2004-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:21:11.000</StartTime>
+<FinishTime>2015-11-25T19:15:33.000</FinishTime>
+<Time>3262</Time>
+<TimeBehind>1834</TimeBehind>
+<Position>15</Position>
+<Status>OK</Status>
+<ControlCard>2086577</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="F">
+<Id>8858</Id>
+<Name>
+<Family>Waddell-Wood</Family>
+<Given>Julia</Given>
+</Name>
+<BirthDate>1964-01-01</BirthDate>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<StartTime>2015-11-25T18:21:12.000</StartTime>
+<FinishTime>2015-11-25T19:15:41.000</FinishTime>
+<Time>3269</Time>
+<TimeBehind>1841</TimeBehind>
+<Position>16</Position>
+<Status>OK</Status>
+<ControlCard>2089803</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Id>8515</Id>
+<Name>
+<Family>Vaughan</Family>
+<Given>Nick</Given>
+</Name>
+<BirthDate>1975-01-01</BirthDate>
+<Address>
+<CareOf>Ledbrook Paul</CareOf>
+</Address>
+</Person>
+<Organisation>
+<Id>12</Id>
+<Name>BS A</Name>
+<ShortName>BS A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>55</BibNumber>
+<StartTime>2015-11-25T17:22:25.000</StartTime>
+<FinishTime>2015-11-25T18:17:43.000</FinishTime>
+<Time>3318</Time>
+<TimeBehind>1890</TimeBehind>
+<Position>17</Position>
+<Status>OK</Status>
+<ControlCard>2006721</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+<PersonResult>
+<Person sex="M">
+<Name>
+<Family>Kluth</Family>
+<Given>Josh</Given>
+</Name>
+<BirthDate>2005-01-01</BirthDate>
+<Address>
+<CareOf>Kluth Josh</CareOf>
+<Street>2 Simpson Street</Street>
+<ZipCode>2602</ZipCode>
+<City>Watson</City>
+</Address>
+<Contact type="PhoneNumber">262556886</Contact>
+<Contact type="EmailAddress">patrick.kluth@anu.edu.au</Contact>
+</Person>
+<Organisation>
+<Id>17</Id>
+<Name>PO A</Name>
+<ShortName>PO A</ShortName>
+<Country code="ACT">ACT</Country>
+</Organisation>
+<Result raceNumber="1">
+<BibNumber>66</BibNumber>
+<StartTime>2015-11-25T16:59:27.000</StartTime>
+<FinishTime>2015-11-25T18:00:47.000</FinishTime>
+<Time>3680</Time>
+<TimeBehind>2252</TimeBehind>
+<Position>18</Position>
+<Status>OK</Status>
+<ControlCard>41098</ControlCard>
+<AssignedFee>
+<Fee>
+<Name>Actual</Name>
+<Amount>0.00</Amount>
+</Fee>
+</AssignedFee>
+</Result>
+</PersonResult>
+</ClassResult>
+</ResultList>

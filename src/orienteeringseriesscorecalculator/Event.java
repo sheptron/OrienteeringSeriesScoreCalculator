@@ -47,6 +47,9 @@ public class Event {
         
         // TODO add space before capital letters (excluding the first)
         String string = insertSpaces(nwsName);
+        
+        // TODO remove _Final if it exists
+        
         return string;
         //return this.name.substring(stop+1,this.name.length());
     }

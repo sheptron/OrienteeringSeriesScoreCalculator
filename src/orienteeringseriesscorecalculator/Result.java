@@ -17,7 +17,7 @@ public class Result {
     public int distanceInMetres = 1;    // Don't make it zero just to ensure no divide-by-zero errors
     public int timeInSeconds = 0;   
     public int handicappedSpeed = 0;        // Seconds/10km (equates to seconds/km rounded to 2 decimal places)
-    public int handicappedPlace = 125;
+    public int handicappedPlace = OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1;
     public int score = 0;
     public double handicap = 1.0;           // Assume the worst (no handicap)
     
@@ -40,6 +40,6 @@ public class Result {
     }
     
     public void calculateScore(){
-        score = 126 - handicappedPlace;     // 125 points for 1st, 124 for 2nd...
+        score = OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1 - handicappedPlace;     // 125 points for 1st, 124 for 2nd...
     }
 }

@@ -47,25 +47,57 @@ public class ResultList {
     }
     
     @XmlAttribute(name="iofVersion")
-    public void setIofVersion(String iofVersion){
+    public void setIofVersion(String iofVersion) {
         this.iofVersion = iofVersion;
     }
-    
-    public String getCreateTime(){
+
+    public String getCreateTime() {
         return this.createTime;
     }
-    
-    @XmlAttribute(name="createTime")
-    public void setCreateTime(String createTime){
+
+    @XmlAttribute(name = "createTime")
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
-    
-    public String getCreator(){
+
+    public String getCreator() {
         return this.creator;
     }
-    
-    @XmlAttribute(name="creator")
-    public void setCreator(String creator){
+
+    @XmlAttribute(name = "creator")
+    public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public void cleanClasses(String[] ALLOWED_CLASSES) {
+        int numberOfClassResults = this.classResult.length;
+        boolean[] classAllowed = new boolean[numberOfClassResults];
+        int numberOfAllowedClasses = 0;
+        for (int l = 0; l < numberOfClassResults; l++) {
+            classAllowed[l] = false;
+            for (int k = 0; k < ALLOWED_CLASSES.length; k++) {
+                String s1 = this.classResult[l].course.name.toLowerCase();
+                String s2 = ALLOWED_CLASSES[k].toLowerCase();
+                if (s1.contains(s2)) {
+                    classAllowed[l] = true;
+                    numberOfAllowedClasses += 1;
+                    break;
+                }
+            }
+        }
+        
+        if (numberOfAllowedClasses == numberOfClassResults){
+            return;
+        }
+        
+        ClassResult[] newClassResults = new ClassResult[numberOfAllowedClasses];
+        int l = 0;
+        for (int k = 0; k < numberOfClassResults; k++) {
+            if (classAllowed[k]) {
+                newClassResults[l] = this.classResult[k];
+                l += 1;
+            }
+        }
+        this.classResult = newClassResults;
     }
 }

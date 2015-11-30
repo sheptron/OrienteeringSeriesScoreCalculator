@@ -20,13 +20,15 @@ import javax.xml.bind.Unmarshaller;
  */
 public class OrienteeringSeriesScoreCalculator {
 
-    public static int currentYear = 2016; // TODO how to get this from xml?
+    public static int currentYear = 2016;       // TODO how to get this from xml?
+    public static final int FIRST_PLACE_SCORE = 125;  // Score for the (handicapped winner)
+    private static final String[] ALLOWED_CLASSES = {"Orange"};
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws JAXBException {
-        // TODO code application logic here
+        // TODO Handle JAXB exceptions PER FILE
 
         /*
          1. Get list of all results .xml files
@@ -72,9 +74,12 @@ public class OrienteeringSeriesScoreCalculator {
                     JAXBContext jaxbContext = JAXBContext.newInstance(ResultList.class);
                     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
                     ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));
+                    
+                    // Remove any not allowed classes
+                    resultList.cleanClasses(ALLOWED_CLASSES);
 
                     // Create a list of athletes with a result for this race
-                    ArrayList<Athlete> raceResultList = new ArrayList<>();
+                    ArrayList<Athlete> raceResultList = new ArrayList<>();                                       
                     
                     // Keep a record of this race
                     eventsList.add(resultList.event);
@@ -136,13 +141,6 @@ public class OrienteeringSeriesScoreCalculator {
                             
                             int k = overallResultList.indexOf(raceAthlete);
                             overallResultList.get(k).results.add(raceAthlete.results.get(0));
-                            /*for (Athlete overallAthlete : overallResultList) {
-                                if (raceAthlete.equals(overallAthlete)) {
-                                    // Add this result to overallAthlete
-                                    overallAthlete.results.add(raceAthlete.results.get(0));
-                                    break;
-                                }
-                            }*/
                         }
                         else overallResultList.add(raceAthlete);
                     }

@@ -14,9 +14,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="Event")
 public class Event {
-    String name;
     
-    int raceNumber;
+    String name = "";
+    
+    int raceNumber = 0;
     
     public String getName() {
         return name;

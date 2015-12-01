@@ -14,11 +14,20 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Course {
     
-    int id;
-    String name;
-    int length;
-    int climb;
-    int numberOfControls;
+    int id = 0;
+    String name = "";
+    int length = 0;
+    int climb = 0;
+    int numberOfControls = 0;
+
+    public int getId() {
+        return id;
+    }
+
+    @XmlElement(name="Id")
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String getName() {
         return name;
@@ -31,10 +40,28 @@ public class Course {
     
     public int getLength() {
         return length;
-    }
+    }    
     
     @XmlElement(name="Length")
     public void setLength(int length){
         this.length = length;
+    }
+    
+    public int getClimb() {
+        return climb;
+    }
+
+    @XmlElement(name="Climb")
+    public void setClimb(int climb) {
+        this.climb = climb;
+    }
+
+    public int getNumberOfControls() {
+        return numberOfControls;
+    }
+
+    @XmlElement(name="NumberOfControls")
+    public void setNumberOfControls(int numberOfControls) {
+        this.numberOfControls = numberOfControls;
     }
 }

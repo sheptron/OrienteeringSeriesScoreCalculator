@@ -18,7 +18,7 @@ public class Person {
     Name name = new Name();
     String birthDate = "0000-00-00";
     
-    String sex;
+    String sex = "";
     
     public Athlete.Sex getAthleteSex() {
         switch (sex) {

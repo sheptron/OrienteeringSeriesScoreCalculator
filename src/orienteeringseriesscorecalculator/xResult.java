@@ -15,11 +15,11 @@ public class xResult {
     
     //String startTime;           // don't care
     //String finishTime;          // don't care
-    int timeInSeconds;
+    int timeInSeconds = 0;
     //int timeBehindInSeconds;    // don't care
     //int position;               // don't care
-    String status;              // TODO boolean
-    int controlCard;
+    String status = "OK";              // TODO boolean
+    int controlCard = 0;
     //AssignedFee assignedFee    // don't care
     
     public int getTimeInSeconds(){

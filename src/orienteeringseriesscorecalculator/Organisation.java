@@ -5,6 +5,7 @@
  */
 package orienteeringseriesscorecalculator;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -17,6 +18,26 @@ public class Organisation {
     String shortName = "";
     
     String id = "";
+    String code = "";
+
+    public String getCode() {
+        return code;
+    }
+
+    @XmlAttribute(name="code")
+    public void setCode(String code) {
+        this.code = code;
+    }
+    
+    public String getCountry() {
+        return country;
+    }
+
+    @XmlElement(name="Country")
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    String country = "";
     
     public String getName(){
         return this.name;

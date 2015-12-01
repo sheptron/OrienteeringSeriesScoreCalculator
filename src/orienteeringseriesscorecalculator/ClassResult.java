@@ -15,22 +15,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="ClassResult")
 public class ClassResult {
 
-    //Oclass oclass;    // don't care
-    Course course;
+    OClass oclass;    // don't care
+    Course course = new Course();
     PersonResult[] personResult;
-
-    /*public Oclass getOclass() {
+    
+    public OClass getOclass() {
         return oclass;
     }
-    
+
     @XmlElement(name="Class")
-    public void setOclass(Oclass oclass){
+    public void setOclass(OClass oclass) {
         this.oclass = oclass;
-    }*/
+    }
     
     public Course getCourse() {
         return course;
-    }
+    }    
     
     @XmlElement(name="Course")
     public void setCourse(Course course){
@@ -39,7 +39,7 @@ public class ClassResult {
 
     public PersonResult[] getPersonResult() {
         return personResult;
-    }
+    }    
     
     @XmlElement(name="PersonResult")
     public void setPersonResult(PersonResult[] personResult){

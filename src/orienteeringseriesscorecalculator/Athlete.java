@@ -150,10 +150,6 @@ public class Athlete {
         }
         Athlete athlete = (Athlete) obj;
         
-        if (this.surname.equals("Needham") && this.firstName.startsWith("Z")){
-            int kkk = 0;
-        }
-        
         // Names Identical
         boolean surnameMatch = this.surname.equalsIgnoreCase(athlete.surname);
         boolean fullNameMatch = this.name.equalsIgnoreCase(athlete.name);  

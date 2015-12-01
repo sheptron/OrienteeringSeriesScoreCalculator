@@ -20,6 +20,7 @@ public class Result {
     public int handicappedPlace = OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1;
     public int score = 0;
     public double handicap = 1.0;           // Assume the worst (no handicap)
+    public boolean status = true;       // Innocent unless proven guilty
     
     Result(Event event, int _timeInSeconds, int _distanceInMetres, double _handicap){
         
@@ -32,7 +33,7 @@ public class Result {
         
         handicap = _handicap;
         
-        handicappedSpeed = (int) Math.round(10.0 * 1000.0 * handicap * timeInSeconds / distanceInMetres);
+        this.calculateHandicappedSpeed();        
     }
     
     public void setHandicappedPlace(int place){
@@ -40,6 +41,34 @@ public class Result {
     }
     
     public void calculateScore(){
-        score = OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1 - handicappedPlace;     // 125 points for 1st, 124 for 2nd...
+        // Can only score if status OK (ie no DNF/DSQ etc)
+        if (this.status) {                    
+            score = Math.max(OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1 - handicappedPlace, 0);     // 125 points for 1st, 124 for 2nd...
+        }
+        else {
+            score = 0;
+        }
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+        
+        if (!this.status) {
+            // false
+            // Set speed to the maximum possible value so the athlete gets ranked last
+            this.handicappedSpeed = Integer.MAX_VALUE;
+        }
+        else {
+            this.calculateHandicappedSpeed();
+        }
+    }
+    
+    private void calculateHandicappedSpeed()
+    {
+        handicappedSpeed = (int) Math.round(10.0 * 1000.0 * handicap * timeInSeconds / distanceInMetres);
     }
 }

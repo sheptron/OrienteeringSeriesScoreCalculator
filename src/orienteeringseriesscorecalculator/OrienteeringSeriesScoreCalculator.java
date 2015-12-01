@@ -6,6 +6,7 @@
 package orienteeringseriesscorecalculator;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,8 +28,7 @@ public class OrienteeringSeriesScoreCalculator {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws JAXBException {
-        // TODO Handle JAXB exceptions PER FILE
+    public static void main(String[] args) {
 
         /*
          1. Get list of all results .xml files
@@ -42,27 +42,26 @@ public class OrienteeringSeriesScoreCalculator {
          4. Sort Athletes by total score
          5. Write output    
          */
-        
         ArrayList<Athlete> overallResultList = new ArrayList<>();
-        
+
         ArrayList<Event> eventsList = new ArrayList<>();
-        
+
         // Get file directory from user...
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         File folder;
         if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            folder = fc.getSelectedFile();            
+            folder = fc.getSelectedFile();
         } else {
             InformationDialog.infoBox("No directory selected, press OK to exit.", "Warning");
-            return;            
+            return;
         }
-        
+
         //File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
         File[] listOfFiles = folder.listFiles();
 
         for (int i = 0; i < listOfFiles.length; i++) {
-            
+
             if (listOfFiles[i].isFile()) {
                 System.out.println("File " + listOfFiles[i].getName());
 
@@ -71,101 +70,126 @@ public class OrienteeringSeriesScoreCalculator {
                     // We have an XML file so parse it in
                     String filename = listOfFiles[i].getAbsolutePath();
 
-                    JAXBContext jaxbContext = JAXBContext.newInstance(ResultList.class);
-                    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                    ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));
-                    
-                    // Remove any not allowed classes
-                    resultList.cleanClasses(ALLOWED_CLASSES);
+                    try {
 
-                    // Create a list of athletes with a result for this race
-                    ArrayList<Athlete> raceResultList = new ArrayList<>();                                       
-                    
-                    // Keep a record of this race
-                    eventsList.add(resultList.event);
-
-                    /*
-                     Now go through resultList and build Athletes with Results
-                     For each classResult we need course.length for each personResult inside
-                     */
-                    Event event = resultList.event;
-
-                    for (int jj = 0; jj < resultList.classResult.length; jj++) {
-
-                        int distanceInMetres = resultList.classResult[jj].course.length;
-
-                        for (PersonResult personResult : resultList.classResult[jj].personResult) {
-
-                            /*Athlete.Sex sex = personResult.person.getAthleteSex();
-                            int controlCard = personResult.result.controlCard;
-                            int birthYear = personResult.person.getBirthYear();
-                            String firstName = personResult.person.name.given;
-                            String lastName = personResult.person.name.family;
-                            int id = personResult.person.id;                            
-                            String club =  personResult.organisation.getShortName();
-                            if (club == null) club = "";
-                            // TODO just use a PersonResult in the constructor for Athlete
-                            Athlete athlete = new Athlete(birthYear, controlCard, sex, firstName, lastName, id, club);*/
-                            Athlete athlete = new Athlete(personResult);
-
-                            double currentHandicap = athlete.calculateHandicap(currentYear);
-
-                            int timeInSeconds = personResult.result.timeInSeconds;
-
-                            Result result = new Result(event, timeInSeconds, distanceInMetres, currentHandicap);
-
-                            athlete.addResult(result);
-
-                            // Now add this athlete and result to array
-                            raceResultList.add(athlete);
+                        // Check for a # in the filename and replace with a _
+                        // # will cause a filenot found exception in JAXB
+                        if (filename.contains("#")) {
+                            File oldName = new File(filename);
+                            String newFilename = filename.replace("#", "_");
+                            File newName = new File(newFilename);
+                            if (oldName.renameTo(newName)) {
+                                filename = newFilename;
+                            } else {
+                                throw new IOException("Unable to rename file (replace '#' with '_').");
+                            }
                         }
-                    }
 
-                    // Now to sort by handicappedSpeed                     
-                    Collections.sort(raceResultList, new Comparator<Athlete>() {
-                        @Override
-                        public int compare(Athlete a1, Athlete a2) {
-                            return a1.results.get(0).handicappedSpeed - a2.results.get(0).handicappedSpeed;
+                        JAXBContext jaxbContext = JAXBContext.newInstance(ResultList.class);
+                        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                        ResultList resultList = (ResultList) jaxbUnmarshaller.unmarshal(new File(filename));
+
+                        // Remove any not allowed classes
+                        // TODO change cleanClasses to remove if oclass.Name includes "Team"
+                        // TODO this should be done by the OE exporter
+                        //resultList.cleanClasses(ALLOWED_CLASSES);
+
+                        // TODO check if there actually was any courses
+                        // Create a list of athletes with a result for this race
+                        ArrayList<Athlete> raceResultList = new ArrayList<>();
+
+                        // Keep a record of this race
+                        eventsList.add(resultList.event);
+
+                        /*
+                         Now go through resultList and build Athletes with Results
+                         For each classResult we need course.length for each personResult inside
+                         */
+                        Event event = resultList.event;
+
+                        for (int jj = 0; jj < resultList.classResult.length; jj++) {
+
+                            int distanceInMetres = resultList.classResult[jj].course.length;
+
+                            for (PersonResult personResult : resultList.classResult[jj].personResult) {
+                                
+                                Athlete athlete = new Athlete(personResult);
+                                
+                                double currentHandicap = athlete.calculateHandicap(currentYear);
+
+                                int timeInSeconds = personResult.result.timeInSeconds;
+
+                                Result result = new Result(event, timeInSeconds, distanceInMetres, currentHandicap);
+
+                                if(!personResult.result.status.equals("OK")){
+                                    result.setStatus(false);
+                                }
+                                
+                                athlete.addResult(result);
+
+                                // Now add this athlete and result to array
+                                raceResultList.add(athlete);
+                            }
                         }
-                    });                    
-                    
-                    // And assign points                    
-                    for (int k=0; k<raceResultList.size(); k++){
-                        raceResultList.get(k).results.get(0).handicappedPlace = k+1;
-                        raceResultList.get(k).results.get(0).score = Math.max(125-k, 0);
-                    }                                      
-                    
-                    // Now merge with previous raceResultLists                    
-                    for (Athlete raceAthlete : raceResultList) {
-                        if (overallResultList.contains(raceAthlete)) {
-                            
-                            int k = overallResultList.indexOf(raceAthlete);
-                            overallResultList.get(k).results.add(raceAthlete.results.get(0));
+
+                        // Now to sort by handicappedSpeed                     
+                        Collections.sort(raceResultList, new Comparator<Athlete>() {
+                            @Override
+                            public int compare(Athlete a1, Athlete a2) {
+                                return a1.results.get(0).handicappedSpeed - a2.results.get(0).handicappedSpeed;
+                            }
+                        });
+
+                        // And assign points                    
+                        for (int k = 0; k < raceResultList.size(); k++) {
+                            raceResultList.get(k).results.get(0).setHandicappedPlace(k+1);
+                            raceResultList.get(k).results.get(0).calculateScore();
                         }
-                        else overallResultList.add(raceAthlete);
+
+                        // Now merge with previous raceResultLists                    
+                        for (Athlete raceAthlete : raceResultList) {
+                            if (overallResultList.contains(raceAthlete)) {
+
+                                int k = overallResultList.indexOf(raceAthlete);
+                                overallResultList.get(k).results.add(raceAthlete.results.get(0));
+                            } else {
+                                overallResultList.add(raceAthlete);
+                            }
+                        }
+                    } catch (JAXBException e) {
+                        // TODO Handle JAXB exceptions PER FILE
+                        System.out.println("File " + listOfFiles[i].getName() + " failed to parse.");
+                    } catch (IOException e) {
+                        System.out.println("File " + listOfFiles[i].getName() + ": " + e.getMessage());
                     }
                 }
             }
         }
+
+        // TODO get out now if there are no races
         
         // Decide How Many Races to Include
         int totalNumberOfRaces = eventsList.size();
-        
-        int numberOfRaces = (int) Math.floor((double)totalNumberOfRaces / 2.0) + 1;
-        
+
+        int numberOfRaces = (int) Math.floor((double) totalNumberOfRaces / 2.0) + 1;
+
         String[] options = new String[totalNumberOfRaces];
-        for (int k=0; k<totalNumberOfRaces; k++) options[k] = String.valueOf(k+1);
-        
-        String userSelection = InformationDialog.selectionBox(options, numberOfRaces-1, "Select","How Many Races Count?");
-        
-        if(userSelection != null){
+        for (int k = 0; k < totalNumberOfRaces; k++) {
+            options[k] = String.valueOf(k + 1);
+        }
+
+        String userSelection = InformationDialog.selectionBox(options, numberOfRaces - 1, "Select", "How Many Races Count?");
+
+        if (userSelection != null) {
             // If the user didn't press cancel, then check what they selected
             numberOfRaces = Integer.parseInt(userSelection);
         }
-        
+
         // We've been through all the xml files now add up each athletes scores
-        for (Athlete athlete : overallResultList) athlete.totalScore(numberOfRaces);
-        
+        for (Athlete athlete : overallResultList) {
+            athlete.totalScore(numberOfRaces);
+        }
+
         // And sort (decreasing
         Collections.sort(overallResultList, new Comparator<Athlete>() {
             @Override
@@ -173,18 +197,17 @@ public class OrienteeringSeriesScoreCalculator {
                 return a2.totalScore - a1.totalScore;
             }
         });
-        
+
         // And publish
         ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList);
         resultsPrinter.writeResults(overallResultList);
-        String htmlResults = resultsPrinter.finaliseTable();  
-        
+        String htmlResults = resultsPrinter.finaliseTable();
+
         // Build Filename
         String outFilename = folder.toString() + "/" + currentYear + "_Twilight_Series_Results_after_Round_" + totalNumberOfRaces + "_Best_" + numberOfRaces + ".html";
-        
-        
+
         StringToFile.write(outFilename, htmlResults);
-        
+
         InformationDialog.infoBox(outFilename, "Results Written To ...");
     }
 

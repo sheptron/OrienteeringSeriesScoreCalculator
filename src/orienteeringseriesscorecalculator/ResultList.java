@@ -74,7 +74,8 @@ public class ResultList {
         boolean[] classAllowed = new boolean[numberOfClassResults];
         int numberOfAllowedClasses = 0;
         for (int l = 0; l < numberOfClassResults; l++) {
-            classAllowed[l] = false;
+            classAllowed[l] = false;         
+            
             for (int k = 0; k < ALLOWED_CLASSES.length; k++) {
                 String s1 = this.classResult[l].course.name.toLowerCase();
                 String s2 = ALLOWED_CLASSES[k].toLowerCase();

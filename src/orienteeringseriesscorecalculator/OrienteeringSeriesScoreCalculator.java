@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -48,17 +50,24 @@ public class OrienteeringSeriesScoreCalculator {
 
         // Get file directory from user...
         JFileChooser fc = new JFileChooser();
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fc.setMultiSelectionEnabled(true);
+        fc.setFileFilter(new FileNameExtensionFilter("OE XML Results Files","xml"));
+        fc.setDialogTitle("Select all the XML results files you want to process");
         File folder;
+        File[] listOfFiles;
         if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            folder = fc.getSelectedFile();
+            //folder = fc.getSelectedFile();
+            listOfFiles = fc.getSelectedFiles();
+            folder = listOfFiles[0].getParentFile(); // Get the parent directory (assuming all selected files are in the same dir)
         } else {
             InformationDialog.infoBox("No directory selected, press OK to exit.", "Warning");
             return;
         }
 
+        // Use for debugging rather than prompting user for files 
         //File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
-        File[] listOfFiles = folder.listFiles();
+        //File[] listOfFiles = folder.listFiles();
 
         for (int i = 0; i < listOfFiles.length; i++) {
 

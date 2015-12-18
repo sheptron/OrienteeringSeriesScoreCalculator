@@ -13,6 +13,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author shep
+ * 
+ * See http://orienteering.org/resources/it/data-standard-3-0/
+ * for IOF XML standards
+ * and
+ * http://orienteering.org/datastandard/IOF.xsd
+ * for enumerations etc
  */
 @XmlRootElement(name="ResultList")
 public class ResultList {

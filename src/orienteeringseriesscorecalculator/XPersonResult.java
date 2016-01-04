@@ -11,16 +11,16 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-public class PersonResult {
+public class XPersonResult {
     
     int entryId = 0;
-    Person person = new Person();
-    xResult result;
-    Organisation organisation = new Organisation();
+    XPerson person = new XPerson();
+    XResult result;
+    XOrganisation organisation = new XOrganisation();
     
-    public PersonResult()
+    public XPersonResult()
     {
-        Organisation organisation = new Organisation();
+        XOrganisation organisation = new XOrganisation();
         organisation.setName("");
         organisation.setShortName("");
         organisation.setId("");
@@ -35,27 +35,27 @@ public class PersonResult {
         this.entryId = entryId;
     }
     
-    public Person getPerson(){
+    public XPerson getPerson(){
         return person;
     }
     
     @XmlElement(name="Person")
-    public void setPerson(Person person) {
+    public void setPerson(XPerson person) {
         this.person = person;
     }
     
-    public xResult getResult(){
+    public XResult getResult(){
         return result;
     }
     
     @XmlElement(name="Result")
-    public void setResult(xResult result) {
+    public void setResult(XResult result) {
         this.result = result;
     }
     
-    public Organisation getOrganisation(){
+    public XOrganisation getOrganisation(){
         if (this.organisation == null){
-            Organisation organisation = new Organisation();
+            XOrganisation organisation = new XOrganisation();
             organisation.setName("");
             organisation.setShortName("");
             organisation.setId("");
@@ -66,7 +66,7 @@ public class PersonResult {
     }
     
     @XmlElement(name="Organisation")
-    public void setOrganisation(Organisation organisation) {
+    public void setOrganisation(XOrganisation organisation) {
         this.organisation = organisation;
     }
 }

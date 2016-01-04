@@ -21,30 +21,30 @@ import javax.xml.bind.annotation.XmlRootElement;
  * for enumerations etc
  */
 @XmlRootElement(name="ResultList")
-public class ResultList {
+public class XResultList {
     
     String iofVersion;
     String createTime;
     String creator;
     
-    Event event;
-    ClassResult[] classResult; 
+    XEvent event;
+    XClassResult[] classResult; 
     
-    public Event getEvent() {
+    public XEvent getEvent() {
         return event;
     }
     
     @XmlElement(name="Event")
-    public void setEvent(Event event) {
+    public void setEvent(XEvent event) {
         this.event = event;
     }
 
-    public ClassResult[] getClassResult() {
+    public XClassResult[] getClassResult() {
         return classResult;
     }
     
     @XmlElement(name="ClassResult")
-    public void setClassResult(ClassResult [] classResult) {
+    public void setClassResult(XClassResult [] classResult) {
         this.classResult = classResult;
     }
     
@@ -97,7 +97,7 @@ public class ResultList {
             return;
         }
         
-        ClassResult[] newClassResults = new ClassResult[numberOfAllowedClasses];
+        XClassResult[] newClassResults = new XClassResult[numberOfAllowedClasses];
         int l = 0;
         for (int k = 0; k < numberOfClassResults; k++) {
             if (classAllowed[k]) {

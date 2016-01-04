@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-class Fee {
+class XFee {
     String Name;
     String amount;
 

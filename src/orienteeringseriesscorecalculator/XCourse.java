@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @author shep
  * 
  */
-public class Course {
+public class XCourse {
     
     int id = 0;
     String name = "";

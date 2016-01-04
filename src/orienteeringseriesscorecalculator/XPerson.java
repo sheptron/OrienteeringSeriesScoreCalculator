@@ -12,10 +12,10 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-public class Person {
+public class XPerson {
     
     int id = 0;
-    Name name = new Name();
+    XName name = new XName();
     String birthDate = "0000-00-00";
     
     String sex = "";
@@ -49,12 +49,12 @@ public class Person {
         this.id = id;
     }
     
-    public Name getName(){
+    public XName getName(){
         return name;
     }
     
     @XmlElement(name="Name")
-    public void setName(Name name){
+    public void setName(XName name){
         this.name = name;
     }
     

@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author shep
  */
 @XmlRootElement(name="Event")
-public class Event {
+public class XEvent {
     
     String name = "";
     

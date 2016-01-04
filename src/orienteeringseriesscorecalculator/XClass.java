@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-class OClass {
+class XClass {
     
     String resultListMode = "";
     String sex = "";
     int Id = 0;
     String Name = "";
     String ShortName = "";
-    Fee[] fee;
+    XFee[] fee;
     
     public String getResultListMode() {
         return resultListMode;

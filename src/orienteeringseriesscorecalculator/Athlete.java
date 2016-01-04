@@ -44,7 +44,7 @@ public class Athlete {
         club = _club;
     }
     
-    Athlete (PersonResult personResult) {
+    Athlete (XPersonResult personResult) {
         yearOfBirth = personResult.person.getBirthYear();
         controlCard = personResult.result.controlCard;                 
         results = new ArrayList<Result>();

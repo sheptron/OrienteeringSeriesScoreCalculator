@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-public class Organisation {
+public class XOrganisation {
     
     String name = "";
     String shortName = "";

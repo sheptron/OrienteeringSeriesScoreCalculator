@@ -13,36 +13,36 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author shep
  */
 @XmlRootElement(name="ClassResult")
-public class ClassResult {
+public class XClassResult {
 
-    OClass oclass;    // don't care
-    Course course = new Course();
-    PersonResult[] personResult;
+    XClass oclass;    // don't care
+    XCourse course = new XCourse();
+    XPersonResult[] personResult;
     
-    public OClass getOclass() {
+    public XClass getOclass() {
         return oclass;
     }
 
     @XmlElement(name="Class")
-    public void setOclass(OClass oclass) {
+    public void setOclass(XClass oclass) {
         this.oclass = oclass;
     }
     
-    public Course getCourse() {
+    public XCourse getCourse() {
         return course;
     }    
     
     @XmlElement(name="Course")
-    public void setCourse(Course course){
+    public void setCourse(XCourse course){
         this.course = course;
     }
 
-    public PersonResult[] getPersonResult() {
+    public XPersonResult[] getPersonResult() {
         return personResult;
     }    
     
     @XmlElement(name="PersonResult")
-    public void setPersonResult(PersonResult[] personResult){
+    public void setPersonResult(XPersonResult[] personResult){
         this.personResult = personResult;
     }
 

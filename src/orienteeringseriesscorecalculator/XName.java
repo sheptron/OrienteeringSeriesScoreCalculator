@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-public class Name {
+public class XName {
     
     String family = "";
     String given = "";

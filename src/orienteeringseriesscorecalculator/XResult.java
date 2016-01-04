@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
  *
  * @author shep
  */
-public class xResult {
+public class XResult {
     
     //String startTime;           // don't care
     //String finishTime;          // don't care

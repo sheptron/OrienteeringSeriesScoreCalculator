@@ -16,9 +16,9 @@ import java.util.Comparator;
 public class ResultsPrinter {
     
     public String htmlResults;
-    private ArrayList<Event> events;
+    private ArrayList<XEvent> events;
 
-    ResultsPrinter(ArrayList<Event> eventsList) {        
+    ResultsPrinter(ArrayList<XEvent> eventsList) {        
         
         // Create object with header rows
         // Race results must be filled in later with ArrayList of Results
@@ -29,14 +29,14 @@ public class ResultsPrinter {
         html.append("<th>Runs</th><th>Sum</th>");
         
         // Sort events
-        Collections.sort(eventsList, new Comparator<Event>() {
+        Collections.sort(eventsList, new Comparator<XEvent>() {
             @Override
-            public int compare(Event e1, Event e2) {
+            public int compare(XEvent e1, XEvent e2) {
                 return e1.raceNumber - e2.raceNumber;
             }
         });
         
-        for (Event event : eventsList){
+        for (XEvent event : eventsList){
             String string = "<th>" + event.parseRaceName() + "</th>";
             html.append(string);
         }
@@ -67,7 +67,7 @@ public class ResultsPrinter {
             // Sum
             html.append("<td>").append(athlete.totalScore).append("</td>");
             
-            for (Event event : this.events) {
+            for (XEvent event : this.events) {
                 
                 String string = "<td>0</td> ";
                 // Did athlete do this event?

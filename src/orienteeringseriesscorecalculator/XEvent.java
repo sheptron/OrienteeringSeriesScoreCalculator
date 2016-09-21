@@ -29,16 +29,29 @@ public class XEvent {
     }
     
     public String parseDate(){
-        return this.name.substring(0, 10);
+        // This is only going to work for Twilight races which use format
+        // <Name>2015-10-21RSTS_2_FaddenPines</Name>
+        // for example
+        if (this.name.length()>=10){
+            return this.name.substring(0, 10);
+        }
+        else return "";
     }
     
     public int parseRaceNumber(){
+        
+        // This is only going to work for Twilight races which use format
+        // <Name>2015-10-21RSTS_2_FaddenPines</Name>
+        // for example
         int start =  this.name.indexOf("_");
         int stop = this.name.indexOf("_", start+1);
         
-        String sRaceNumber = this.name.substring(start+1, stop);
-        this.raceNumber = Integer.parseInt(sRaceNumber);
-        return this.raceNumber;
+        if (start != -1 || stop != -1){        
+            String sRaceNumber = this.name.substring(start+1, stop);        
+            this.raceNumber = Integer.parseInt(sRaceNumber);       
+            return this.raceNumber;
+        }
+        else return 1;
     }
     
     public String parseRaceName(){

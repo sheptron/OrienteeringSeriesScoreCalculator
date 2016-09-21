@@ -44,9 +44,9 @@ public class OrienteeringSeriesScoreCalculator {
     private static final String[] ALLOWED_CLASSES = {"Orange"}; 
     
     // Two modes of operation: Twilight Series and ACT League
-    public enum Mode {TWILIGHT, ACT_LEAGUE};
+    public enum Mode {TWILIGHT, ACT_LEAGUE, JIM_SAWKINS};
     // Human readable version for the dialog box
-    private static final String[] MODES = {"Twilight Series","ACT League"};
+    private static final String[] MODES = {"Twilight Series","ACT League", "Jim Sawkins"};
 
     public static void main(String[] args) {
 
@@ -61,27 +61,45 @@ public class OrienteeringSeriesScoreCalculator {
          3. Calculate total scores for each Athlete
          4. Sort Athletes by total score
          5. Write output    
-         */
+         */                 
+        
         ArrayList<Athlete> overallResultList = new ArrayList<>();
 
         ArrayList<XEvent> eventsList = new ArrayList<>();
         
         // TODO : ask the user - Twilight Series or ACT League
         // Select mode... hard code for now
-        Mode mode = Mode.TWILIGHT;
+        Mode mode = Mode.JIM_SAWKINS;
 
         // Get file directory from user...
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fc.setMultiSelectionEnabled(true);
+        switch (mode){
+            case JIM_SAWKINS: 
+                fc.setMultiSelectionEnabled(false);
+                fc.setDialogTitle("Select the XML results file...");
+                break;
+            default:
+                fc.setMultiSelectionEnabled(true);
+                fc.setDialogTitle("Select all the XML results files you want to process");
+        }
         fc.setFileFilter(new FileNameExtensionFilter("OE XML Results Files","xml"));
-        fc.setDialogTitle("Select all the XML results files you want to process");
+        
         File folder;
         File[] listOfFiles;
         if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            //folder = fc.getSelectedFile();
-            listOfFiles = fc.getSelectedFiles();
-            folder = listOfFiles[0].getParentFile(); // Get the parent directory (assuming all selected files are in the same dir)
+            switch (mode) {
+            
+                case JIM_SAWKINS:
+                    // We'll only have one file in this case
+                    listOfFiles = new File[1];
+                    listOfFiles[0] = fc.getSelectedFile();
+                    folder = fc.getSelectedFile().getParentFile();
+                    break;
+                default:
+                    listOfFiles = fc.getSelectedFiles();            
+                    folder = listOfFiles[0].getParentFile(); // Get the parent directory (assuming all selected files are in the same dir)
+            }
         } else {
             InformationDialog.infoBox("No directory selected, press OK to exit.", "Warning");
             return;
@@ -104,7 +122,7 @@ public class OrienteeringSeriesScoreCalculator {
                     try {
 
                         // Check for a # in the filename and replace with a _
-                        // # will cause a filenot found exception in JAXB
+                        // # will cause a file not found exception in JAXB
                         if (filename.contains("#")) {
                             File oldName = new File(filename);
                             String newFilename = filename.replace("#", "_");
@@ -165,49 +183,37 @@ public class OrienteeringSeriesScoreCalculator {
                         }
                         
                         // Assign Scores: this is where things get different depending on Mode
+                        
+                        // First sort by handicappedSpeed 
+                        Collections.sort(raceResultList, new Comparator<Athlete>() {
+                            @Override
+                            public int compare(Athlete a1, Athlete a2) {
+                                return a1.results.get(0).handicappedSpeed - a2.results.get(0).handicappedSpeed;
+                            }
+                        });
 
-                        switch (mode) {
+                        switch (mode) {                            
+                                                        
+                            case JIM_SAWKINS:
+                                
+                                // Assign handicapped places                    
+                                for (int k = 0; k < raceResultList.size(); k++) {
+                                    raceResultList.get(k).results.get(0).setHandicappedPlace(k + 1);
+                                    //raceResultList.get(k).results.get(0).calculateScore();
+                                }
+                                
+                                break;                                
 
-                            case TWILIGHT:
-                                // Now to sort by handicappedSpeed                     
-                                Collections.sort(raceResultList, new Comparator<Athlete>() {
-                                    @Override
-                                    public int compare(Athlete a1, Athlete a2) {
-                                        return a1.results.get(0).handicappedSpeed - a2.results.get(0).handicappedSpeed;
-                                    }
-                                });
+                            default:
+                                // TWILIGHT and ACT_LEAGUE now being done the same way
 
-                                // And assign points                    
+                                // Assign points                    
                                 for (int k = 0; k < raceResultList.size(); k++) {
                                     raceResultList.get(k).results.get(0).setHandicappedPlace(k + 1);
                                     raceResultList.get(k).results.get(0).calculateScore();
                                 }
                             
                             break;
-                                
-                            case ACT_LEAGUE:
-                                /*
-                                The revised kilometre rates are then matched 
-                                against the nominal kilometre rate for the 
-                                Australian elite male champion (par km rate) and 
-                                points are awarded on the basis of relativity. 
-                                That is if the rates match, the competitor 
-                                receives 125 points, if it is faster, the 
-                                competitor receives pro rata more than 125 and 
-                                slower (as is usually the case) the competitor 
-                                receives pro rata of 125 points.
-                                
-                                Loading factors are based on whether a 
-                                competitor is able to view the map before 
-                                starting. For events where a competitor views 
-                                the map the factor is 1.0 and for those event 
-                                where a competitor does not view the map the 
-                                factor is 1.1.
-                                */
-                                
-                                // TODO : get the "nominal kilometre rate for the Australian elite male champion"
-                                
-                                break;
                         }
 
                         // Now merge with previous raceResultLists                    
@@ -242,34 +248,89 @@ public class OrienteeringSeriesScoreCalculator {
             options[k] = String.valueOf(k + 1);
         }
 
-        String userSelection = InformationDialog.selectionBox(options, numberOfRaces - 1, "Select", "How Many Races Count?");
-
-        if (userSelection != null) {
+        if (numberOfRaces > 1) {
+            String userSelection = InformationDialog.selectionBox(options, numberOfRaces - 1, "Select", "How Many Races Count?");
+         
+            if (userSelection != null) {
             // If the user didn't press cancel, then check what they selected
             numberOfRaces = Integer.parseInt(userSelection);
-        }
-
-        // We've been through all the xml files now add up each athletes scores
-        for (Athlete athlete : overallResultList) {
-            athlete.totalScore(numberOfRaces);
-        }
-
-        // And sort (decreasing)
-        Collections.sort(overallResultList, new Comparator<Athlete>() {
-            @Override
-            public int compare(Athlete a1, Athlete a2) {
-                return a2.totalScore - a1.totalScore;
             }
-        });
+        }
+        
+        ArrayList<Athlete> division2ResultList = new ArrayList<>(); // TODO - only needed for JIM_SAWKINS, can we declare it only if needed?
+        
+        switch (mode) {
 
-        // And publish
-        ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList);
-        resultsPrinter.writeResults(overallResultList);
-        String htmlResults = resultsPrinter.finaliseTable();
+            case JIM_SAWKINS:
 
+                /*
+                Results are already sorted but it needs to be divided up into Division 1 and 2
+                Division 1 is everyone
+                Division 2 is everyone except for M/W21-34 and the winner of Division 1
+                */
+                
+                // Create (copy) the Division 2 Result List
+                //ArrayList<Athlete> division2ResultList = new ArrayList<>();             
+                
+                for (Athlete athlete : overallResultList) {
+                    // Add athlete if eligible
+                    
+                    int handicappedPlace = athlete.results.get(0).handicappedPlace;
+                    int ageAtEndOfThisYear = currentYear - athlete.yearOfBirth;
+                    if ((handicappedPlace > 1)
+                            && ((ageAtEndOfThisYear < 21) || (ageAtEndOfThisYear > 34))) {
+                        // Not the winner, and athlete is under 21, or over 34
+                        division2ResultList.add(athlete);
+                    }
+                    
+                }
+                
+                break;
+
+            default:
+
+                // We've been through all the xml files now add up each athletes scores
+                for (Athlete athlete : overallResultList) {
+                    athlete.totalScore(numberOfRaces);
+                }
+
+                // And sort (decreasing)
+                Collections.sort(overallResultList, new Comparator<Athlete>() {
+                    @Override
+                    public int compare(Athlete a1, Athlete a2) {
+                        return a2.totalScore - a1.totalScore;
+                    }
+                });
+        }
+        
+        // Now publish
+        ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList, mode);
+        String htmlResults;
+        switch (mode) {
+            case JIM_SAWKINS:
+                resultsPrinter.writeJimSawkinsResults(overallResultList, division2ResultList);
+                htmlResults = resultsPrinter.htmlResults;   // TODO fix up this, we need finaliseTable below but it won't work for JIM_SAWKINS
+                break;
+                
+            default:
+                resultsPrinter.writeResults(overallResultList);
+                htmlResults = resultsPrinter.finaliseTable();
+        }        
+        
         // Build Filename
-        String outFilename = folder.toString() + "/" + currentYear + "_Twilight_Series_Results_after_Round_" + totalNumberOfRaces + "_Best_" + numberOfRaces + ".html";
-
+        String outFilename;
+        switch (mode) {
+            case JIM_SAWKINS:
+                outFilename = folder.toString() + "/" + currentYear + "_Jim_Sawkins_Handicap_Results.html";
+                break;
+                
+            case TWILIGHT:
+                outFilename = folder.toString() + "/" + currentYear + "_Twilight_Series_Results_after_Round_" + totalNumberOfRaces + "_Best_" + numberOfRaces + ".html";
+                break;
+                
+            default:
+                outFilename = folder.toString() + "/" + "null.txt";
+        }
         StringToFile.write(outFilename, htmlResults);
 
         InformationDialog.infoBox(outFilename, "Results Written To ...");

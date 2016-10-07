@@ -33,6 +33,9 @@ public class Athlete {
     public Sex sex = Sex.YesPlease;
     public double currentHandicap = 1.0;    // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
+    public String className = "Handicap";
+    
+    public XOrganisation organisation;
   
     Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id, String _club) {
         yearOfBirth = _yearOfBirth;
@@ -54,6 +57,16 @@ public class Athlete {
         name = firstName + " " + surname;
         id = personResult.person.id;
         club = personResult.organisation.getShortName();  
+        organisation = personResult.getOrganisation();
+    }
+    
+    public String getSex(){
+        switch (sex){
+            case Female:
+                return "F";
+            default:
+                return "M";               
+        }
     }
     
     public void addResult(Result result){

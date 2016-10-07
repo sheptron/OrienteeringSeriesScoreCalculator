@@ -5,16 +5,20 @@
  */
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.ObjectFactory;
+import IofXml30.java.*;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
@@ -43,12 +47,17 @@ public class OrienteeringSeriesScoreCalculator {
     may be "Course 1" rather than "Red 1". */
     private static final String[] ALLOWED_CLASSES = {"Orange"}; 
     
-    // Two modes of operation: Twilight Series and ACT League
-    public enum Mode {TWILIGHT, ACT_LEAGUE, JIM_SAWKINS};
+    /* 
+    Modes of operation: Twilight Series, ACT League, Jim Sawkins and (single) Handicap
+    Jim Sawkins and Handicap are essentially the same but differ 
+        - the format of the files they produce
+        - Handicap assigns points in the same way as Twilight and ACT League
+    */
+    public enum Mode {TWILIGHT, ACT_LEAGUE, JIM_SAWKINS, HANDICAP};
     // Human readable version for the dialog box
     private static final String[] MODES = {"Twilight Series","ACT League", "Jim Sawkins"};
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException {
 
         /*
          1. Get list of all results .xml files
@@ -69,13 +78,14 @@ public class OrienteeringSeriesScoreCalculator {
         
         // TODO : ask the user - Twilight Series or ACT League
         // Select mode... hard code for now
-        Mode mode = Mode.JIM_SAWKINS;
+        Mode mode = Mode.HANDICAP;
 
         // Get file directory from user...
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         switch (mode){
             case JIM_SAWKINS: 
+            case HANDICAP:
                 fc.setMultiSelectionEnabled(false);
                 fc.setDialogTitle("Select the XML results file...");
                 break;
@@ -91,6 +101,7 @@ public class OrienteeringSeriesScoreCalculator {
             switch (mode) {
             
                 case JIM_SAWKINS:
+                case HANDICAP:
                     // We'll only have one file in this case
                     listOfFiles = new File[1];
                     listOfFiles[0] = fc.getSelectedFile();
@@ -204,8 +215,7 @@ public class OrienteeringSeriesScoreCalculator {
                                 
                                 break;                                
 
-                            default:
-                                // TWILIGHT and ACT_LEAGUE now being done the same way
+                            default:                              
 
                                 // Assign points                    
                                 for (int k = 0; k < raceResultList.size(); k++) {
@@ -216,7 +226,7 @@ public class OrienteeringSeriesScoreCalculator {
                             break;
                         }
 
-                        // Now merge with previous raceResultLists                    
+                        // Now merge with previous raceResultLists                   
                         for (Athlete raceAthlete : raceResultList) {
                             if (overallResultList.contains(raceAthlete)) {
 
@@ -305,11 +315,137 @@ public class OrienteeringSeriesScoreCalculator {
         
         // Now publish
         ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList, mode);
-        String htmlResults;
+        String htmlResults = null;
         switch (mode) {
             case JIM_SAWKINS:
                 resultsPrinter.writeJimSawkinsResults(overallResultList, division2ResultList);
                 htmlResults = resultsPrinter.htmlResults;   // TODO fix up this, we need finaliseTable below but it won't work for JIM_SAWKINS
+                break;
+                
+            case HANDICAP:
+                
+                // Produce an XML for Eventor
+                
+                ObjectFactory factory = new ObjectFactory();
+                //ObjectFactory factory = new ObjectFactory();
+                //JAXBContext context = JAXBContext.newInstance("IofXml30"); 
+                
+                // Event Name
+                ///String event
+                
+                // Build Person Results
+                ArrayList<PersonResult> personResults = new ArrayList<>();  
+                int position = 1;
+                for (Athlete athlete : overallResultList) {
+                    
+                    // Person 
+                    PersonName personName = factory.createPersonName();
+                    personName.setFamily(athlete.surname);
+                    personName.setGiven(athlete.firstName);
+                    
+                    Person person = factory.createPerson();
+                    person.setName(personName);
+                    
+                    person.setSex(athlete.getSex());
+                    
+                    
+                    Id id = factory.createId();
+                    id.setValue(String.valueOf(athlete.id));
+                    ArrayList<Id> ids = new ArrayList<>();
+                    ids.add(id);
+                    person.setID(ids);
+                    
+                    // Organisation
+                    Organisation organisation = factory.createOrganisation();
+                    Id orgId = factory.createId();
+                    orgId.setValue(athlete.organisation.getId());
+                    organisation.setId(orgId);
+                    
+                    organisation.setName(athlete.organisation.getName());
+                    organisation.setShortName(athlete.organisation.getShortName());
+                    Country cuntry = factory.createCountry();
+                    cuntry.setCode(athlete.organisation.getCountry()); // TODO XOrganisation needs an XCountry to get this to work properly!
+                    cuntry.setValue(athlete.organisation.getCountry());
+                    organisation.setCountry(cuntry);
+                    boolean isMember = !athlete.organisation.getCode().equals("");
+                    
+                    
+                    PersonRaceResult result = factory.createPersonRaceResult();
+                    result.setTime(athlete.results.get(0).handicappedKmRate);
+                    
+                    // Status
+                    if (athlete.results.get(0).status) {
+                        result.setStatus(ResultStatus.OK);
+                    }
+                    else result.setStatus(ResultStatus.DISQUALIFIED);
+                    
+                    // Position
+                    result.setPosition(BigInteger.valueOf(position));
+                    
+                    
+                    // TODO we might need more info in here
+                    ArrayList<PersonRaceResult> results = new ArrayList<>();
+                    results.add(result);
+                    
+                    PersonResult personResult = factory.createPersonResult();
+                    //personResult.setEntryId(id);
+                    personResult.setPerson(person);
+                    if (isMember) personResult.setOrganisation(organisation);
+                    personResult.setResult(results);
+                    
+                    
+                
+                    // Finally add this person result to our list
+                    personResults.add(personResult);
+                    
+                    position += 1;
+                // Build Class
+                }
+                
+                ClassResult classResult = factory.createClassResult();
+                classResult.setPersonResult(personResults);
+                ArrayList<ClassResult> classResults = new ArrayList<>();
+                classResults.add(classResult);
+                
+                Clazz clazz = factory.createClass();
+                //Id classId = factory.createId();
+                //classId.setValue("1");
+                //clazz.setId(classId);
+                clazz.setName("Handicap");
+                clazz.setShortName("Handicap");
+                classResult.setClazz(clazz);
+                        
+                ResultList resultList = factory.createResultList();
+                resultList.setClassResult(classResults);
+                resultList.setIofVersion("3.0");
+                resultList.setCreator("Not Andrew Blakers");
+                
+                Event event = factory.createEvent();
+                Id eventId = factory.createId();
+                eventId.setValue("1");
+                
+                // Event Name
+                event.setName(eventsList.get(0).getName());
+                // TODO might need start time
+                
+                resultList.setEvent(event);
+                
+                //JAXBElement<ResultList> element = factory. .createResultList();
+
+                 //Marshaller marshaller = context.createMarshaller();
+                 //marshaller.setProperty("jaxb.formatted.output",Boolean.TRUE);
+                 //marshaller.marshal(element,System.out);
+                File file = new File("/home/shep/Desktop/testFile.xml");
+		JAXBContext jaxbContext = JAXBContext.newInstance("IofXml30.java");
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+		// output pretty printed
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		jaxbMarshaller.marshal(resultList, file);
+		//jaxbMarshaller.marshal(resultList, System.out);
+                
+                
                 break;
                 
             default:
@@ -317,6 +453,7 @@ public class OrienteeringSeriesScoreCalculator {
                 htmlResults = resultsPrinter.finaliseTable();
         }        
         
+        if (mode != Mode.HANDICAP) {
         // Build Filename
         String outFilename;
         switch (mode) {
@@ -332,8 +469,10 @@ public class OrienteeringSeriesScoreCalculator {
                 outFilename = folder.toString() + "/" + "null.txt";
         }
         StringToFile.write(outFilename, htmlResults);
-
         InformationDialog.infoBox(outFilename, "Results Written To ...");
+        }
+        
+        
         
         /* Testing
         // Build csv

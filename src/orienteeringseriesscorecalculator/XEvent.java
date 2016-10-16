@@ -19,6 +19,16 @@ public class XEvent {
     
     int raceNumber = 0;
     
+    int year = 0;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+     
     public String getName() {
         return name;
     }    
@@ -46,7 +56,7 @@ public class XEvent {
         int start =  this.name.indexOf("_");
         int stop = this.name.indexOf("_", start+1);
         
-        if (start != -1 || stop != -1){        
+        if (start != -1 && stop != -1){        
             String sRaceNumber = this.name.substring(start+1, stop);        
             this.raceNumber = Integer.parseInt(sRaceNumber);       
             return this.raceNumber;

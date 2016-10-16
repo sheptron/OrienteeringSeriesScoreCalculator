@@ -7,6 +7,7 @@ package orienteeringseriesscorecalculator;
 
 import IofXml30.java.ObjectFactory;
 import IofXml30.java.*;
+import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -20,6 +21,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -39,13 +41,14 @@ public class OrienteeringSeriesScoreCalculator {
     - etc
     */
 
-    public static int currentYear = 2016;       // TODO get this from xml files
     public static final int FIRST_PLACE_SCORE = 125;  // Score for the (handicapped winner)
     /* TODO decide whether to leave ALLOWED CLASSES up to the person exporting 
     the results from OE (or equivalent). It's probably safest as we may not be
     able to determine whether a course was (eg) "Red" standard as course names
     may be "Course 1" rather than "Red 1". */
     private static final String[] ALLOWED_CLASSES = {"Orange"}; 
+    
+    public static final String CREATOR = "Would You Believe Not a Spreadsheet";
     
     /* 
     Modes of operation: Twilight Series, ACT League, Jim Sawkins and (single) Handicap
@@ -55,7 +58,7 @@ public class OrienteeringSeriesScoreCalculator {
     */
     public enum Mode {TWILIGHT, ACT_LEAGUE, JIM_SAWKINS, HANDICAP};
     // Human readable version for the dialog box
-    private static final String[] MODES = {"Twilight Series","ACT League", "Jim Sawkins"};
+    private static final String[] MODES = {"Twilight Series","ACT League", "Jim Sawkins", "Handicap"};
 
     public static void main(String[] args) throws JAXBException {
 
@@ -70,7 +73,10 @@ public class OrienteeringSeriesScoreCalculator {
          3. Calculate total scores for each Athlete
          4. Sort Athletes by total score
          5. Write output    
-         */                 
+         */        
+        
+        // Initialise Current Year (Used for Handicap Calcs)
+        int currentYear = 2016;       // Get it from xml files (createTime)
         
         ArrayList<Athlete> overallResultList = new ArrayList<>();
 
@@ -79,7 +85,7 @@ public class OrienteeringSeriesScoreCalculator {
         // TODO : ask the user - Twilight Series or ACT League
         // Select mode... hard code for now
         Mode mode = Mode.HANDICAP;
-
+       
         // Get file directory from user...
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -156,8 +162,12 @@ public class OrienteeringSeriesScoreCalculator {
 
                         // TODO check if there actually was any courses
                         
+                        XMLGregorianCalendar createTime = resultList.getCreateTime();
+                        int createYear = createTime.getYear();                        
+                        
                         // Create a list of athletes with a result for this race
                         ArrayList<Athlete> raceResultList = new ArrayList<>();
+                        resultList.event.setYear(createYear);
 
                         // Keep a record of this race
                         eventsList.add(resultList.event);
@@ -327,51 +337,54 @@ public class OrienteeringSeriesScoreCalculator {
                 // Produce an XML for Eventor
                 
                 ObjectFactory factory = new ObjectFactory();
-                //ObjectFactory factory = new ObjectFactory();
-                //JAXBContext context = JAXBContext.newInstance("IofXml30"); 
-                
+               
                 // Event Name
+                
+                // Event Date            
+                currentYear = eventsList.get(0).getYear();
                 ///String event
+                double fastestTime = overallResultList.get(0).results.get(0).getHandicappedKmRate();
                 
                 // Build Person Results
                 ArrayList<PersonResult> personResults = new ArrayList<>();  
                 int position = 1;
-                for (Athlete athlete : overallResultList) {
+                for (Athlete athlete : overallResultList) {                    
                     
                     // Person 
                     PersonName personName = factory.createPersonName();
                     personName.setFamily(athlete.surname);
-                    personName.setGiven(athlete.firstName);
-                    
+                    personName.setGiven(athlete.firstName);                    
                     Person person = factory.createPerson();
-                    person.setName(personName);
-                    
-                    person.setSex(athlete.getSex());
-                    
-                    
-                    Id id = factory.createId();
-                    id.setValue(String.valueOf(athlete.id));
-                    ArrayList<Id> ids = new ArrayList<>();
-                    ids.add(id);
-                    person.setID(ids);
-                    
+                    person.setName(personName);                    
+                    person.setSex(athlete.getSex());                                  
+                    Id personId = factory.createId();
+                    personId.setValue(String.valueOf(athlete.id));
+                    // Only Set the ID if The Athlete has one so eventor won't cry 
+                    if (athlete.id != 0) {
+                        ArrayList<Id> personIds = new ArrayList<>();
+                        personIds.add(personId);
+                        person.setID(personIds);
+                    }
                     // Organisation
                     Organisation organisation = factory.createOrganisation();
                     Id orgId = factory.createId();
                     orgId.setValue(athlete.organisation.getId());
                     organisation.setId(orgId);
                     
+                    // Organisation (club)
                     organisation.setName(athlete.organisation.getName());
                     organisation.setShortName(athlete.organisation.getShortName());
                     Country cuntry = factory.createCountry();
                     cuntry.setCode(athlete.organisation.getCountry()); // TODO XOrganisation needs an XCountry to get this to work properly!
                     cuntry.setValue(athlete.organisation.getCountry());
-                    organisation.setCountry(cuntry);
-                    boolean isMember = !athlete.organisation.getCode().equals("");
+                    organisation.setCountry(cuntry); 
+                    // Don't add an empty organisation (eventor doesn't like it)
+                    boolean isMember = !athlete.organisation.getId().equals("");
                     
-                    
+                    // Result
+                    // Race Time (handicapped)
                     PersonRaceResult result = factory.createPersonRaceResult();
-                    result.setTime(athlete.results.get(0).handicappedKmRate);
+                    result.setTime(athlete.results.get(0).getHandicappedKmRate());
                     
                     // Status
                     if (athlete.results.get(0).status) {
@@ -379,29 +392,32 @@ public class OrienteeringSeriesScoreCalculator {
                     }
                     else result.setStatus(ResultStatus.DISQUALIFIED);
                     
+                    // TODO Time Behind
+                    double timeBehind = athlete.results.get(0).getHandicappedKmRate() - fastestTime;
+                    
+                    result.setTimeBehind(timeBehind);
+                    
                     // Position
                     result.setPosition(BigInteger.valueOf(position));
-                    
-                    
-                    // TODO we might need more info in here
+                                  
+                    // XML needs an array of results (there will only be one result)
                     ArrayList<PersonRaceResult> results = new ArrayList<>();
                     results.add(result);
                     
-                    PersonResult personResult = factory.createPersonResult();
-                    //personResult.setEntryId(id);
+                    // Build the XML PersonResult
+                    PersonResult personResult = factory.createPersonResult();                    
                     personResult.setPerson(person);
                     if (isMember) personResult.setOrganisation(organisation);
                     personResult.setResult(results);
-                    
-                    
                 
-                    // Finally add this person result to our list
+                    // Finally add this Person Result to our list
                     personResults.add(personResult);
                     
                     position += 1;
                 // Build Class
                 }
                 
+                // Set up the Class (course) Result (there will only be one - Handicap)
                 ClassResult classResult = factory.createClassResult();
                 classResult.setPersonResult(personResults);
                 ArrayList<ClassResult> classResults = new ArrayList<>();
@@ -413,12 +429,20 @@ public class OrienteeringSeriesScoreCalculator {
                 //clazz.setId(classId);
                 clazz.setName("Handicap");
                 clazz.setShortName("Handicap");
-                classResult.setClazz(clazz);
+                classResult.setClazz(clazz);  
+                
+                
+                // Course
+                //SimpleRaceCourse course = factory.createSimpleRaceCourse();
+                //course.setLength(1000.0);
+                //ArrayList<SimpleRaceCourse> courses = new ArrayList<>();  
+                //courses.add(course);
+                //classResult.setCourse(courses);
                         
                 ResultList resultList = factory.createResultList();
                 resultList.setClassResult(classResults);
                 resultList.setIofVersion("3.0");
-                resultList.setCreator("Not Andrew Blakers");
+                resultList.setCreator(CREATOR);
                 
                 Event event = factory.createEvent();
                 Id eventId = factory.createId();
@@ -427,15 +451,24 @@ public class OrienteeringSeriesScoreCalculator {
                 // Event Name
                 event.setName(eventsList.get(0).getName());
                 // TODO might need start time
+                /*
+                DateAndOptionalTime startTime = factory.createDateAndOptionalTime();
+                XMLGregorianCalendar date = new XMLGregorianCalendar();
+                date.setYear(2016);
+                date.setMonth(10);
+                date.setDay(13);
+                startTime.setDate(date);
+                event.setStartTime(startTime);*/
                 
                 resultList.setEvent(event);
                 
                 //JAXBElement<ResultList> element = factory. .createResultList();
 
-                 //Marshaller marshaller = context.createMarshaller();
-                 //marshaller.setProperty("jaxb.formatted.output",Boolean.TRUE);
-                 //marshaller.marshal(element,System.out);
-                File file = new File("/home/shep/Desktop/testFile.xml");
+                String filename = eventsList.get(0).getName() + "_Handicapped_Times_For_Eventor.xml";
+                
+                File file = new File(folder, filename);
+                
+                //File file = new File("/home/shep/Desktop/testFile.xml");
 		JAXBContext jaxbContext = JAXBContext.newInstance("IofXml30.java");
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -443,7 +476,11 @@ public class OrienteeringSeriesScoreCalculator {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		jaxbMarshaller.marshal(resultList, file);
-		//jaxbMarshaller.marshal(resultList, System.out);
+		
+                String filePath = file.toString();
+                String info = "Handicapped results written to \n" + filePath + "\n" +
+                        "Please upload this XML file to the corresponding event on Eventor.";
+                InformationDialog.infoBox(info, "Handicapping Finished");
                 
                 
                 break;

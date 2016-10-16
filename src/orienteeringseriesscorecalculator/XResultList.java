@@ -6,9 +6,11 @@
 
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.BaseMessageElement;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  *
@@ -22,9 +24,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="ResultList")
 public class XResultList {
+//extends BaseMessageElement {
+    
     
     String iofVersion;
-    String createTime;
+    XMLGregorianCalendar createTime;
     String creator;
     
     XEvent event;
@@ -57,12 +61,12 @@ public class XResultList {
         this.iofVersion = iofVersion;
     }
 
-    public String getCreateTime() {
+    public XMLGregorianCalendar getCreateTime() {
         return this.createTime;
     }
 
     @XmlAttribute(name = "createTime")
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(XMLGregorianCalendar createTime) {
         this.createTime = createTime;
     }
 

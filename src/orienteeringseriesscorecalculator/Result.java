@@ -73,7 +73,12 @@ public class Result {
         handicappedSpeed = (int) Math.round(10.0 * 1000.0 * handicap * timeInSeconds / distanceInMetres);
         
         //double timeInMinutes = (timeInSeconds / 60.0);
-        double distanceInKm = distanceInMetres / 1000.0;
+        double distanceInKm = (double) distanceInMetres / 1000.0;
         handicappedKmRate = Math.round(100.0 * handicap * timeInSeconds / distanceInKm) / 100.0;     
     }
+
+    public double getHandicappedKmRate() {
+        return handicappedKmRate;
+    }    
+    
 }

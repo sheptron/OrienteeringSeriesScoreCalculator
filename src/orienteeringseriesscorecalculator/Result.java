@@ -5,6 +5,8 @@
  */
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.Event;
+
 /**
  *
  * @author shep
@@ -37,11 +39,25 @@ public class Result {
         this.calculateHandicappedSpeed();        
     }
     
+    Result(Event event, int _timeInSeconds, int _distanceInMetres, double _handicap){
+        
+        raceName = parseRaceName(event);
+        raceDate = parseDate(event);
+        raceNumber = parseRaceNumber(event);
+        
+        timeInSeconds = _timeInSeconds;
+        distanceInMetres = _distanceInMetres;
+        
+        handicap = _handicap;
+        
+        this.calculateHandicappedSpeed();        
+    }
+    
     public void setHandicappedPlace(int place){
         handicappedPlace = place;
     }
     
-    public void calculateScore(){
+    public void calculateScore(){        
         // Can only score if status OK (ie no DNF/DSQ etc)
         if (this.status) {                    
             score = Math.max(OrienteeringSeriesScoreCalculator.FIRST_PLACE_SCORE + 1 - handicappedPlace, 0);     // 125 points for 1st, 124 for 2nd...
@@ -51,7 +67,7 @@ public class Result {
         }
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -66,7 +82,7 @@ public class Result {
         else {
             this.calculateHandicappedSpeed();
         }
-    }
+    } 
     
     private void calculateHandicappedSpeed()
     {
@@ -80,5 +96,73 @@ public class Result {
     public double getHandicappedKmRate() {
         return handicappedKmRate;
     }    
+
+    public int getHandicappedSpeed() {
+        return handicappedSpeed;
+    }
+
+    public int getHandicappedPlace() {
+        return handicappedPlace;
+    }     
     
+    private static String parseDate(Event event){
+        // This is only going to work for Twilight races which use format
+        // <Name>2015-10-21RSTS_2_FaddenPines</Name>
+        // for example
+        if (event.getName().length()>=10){
+            return event.getName().substring(0, 10);
+        }
+        else return "";
+    }
+    
+    private static int parseRaceNumber(Event event){
+        
+        // This is only going to work for Twilight races which use format
+        // <Name>2015-10-21RSTS_2_FaddenPines</Name>
+        // for example
+        int raceNumber = 1;
+        
+        try {
+            int start = event.getName().indexOf("_");
+            int stop = event.getName().indexOf("_", start+1);
+            if (start != -1 && stop != -1){        
+                String sRaceNumber = event.getName().substring(start+1, stop);        
+                raceNumber = Integer.parseInt(sRaceNumber);       
+                return raceNumber;
+            }
+            else return 1;
+        }
+        catch (Exception e) {
+            return 1;
+        }
+        
+    }
+    
+    private static String parseRaceName(Event event){
+        int start =  event.getName().indexOf("_");
+        int stop = event.getName().indexOf("_", start+1);
+        String nwsName = event.getName().substring(stop+1,event.getName().length()); //no white space
+        
+        // TODO add space before capital letters (excluding the first)
+        String string = insertSpaces(nwsName);
+        
+        // TODO remove _Final if it exists
+        
+        return string;
+        //return this.name.substring(stop+1,this.name.length());
+    }
+
+    private static String insertSpaces(String string) {
+        // Don't insert a space before the FIRST letter!
+        String outString = string.substring(0, 1);
+
+        for (int i = 1; i < string.length(); i++) {
+            if (Character.isUpperCase(string.charAt(i))) {
+                outString += " " + string.substring(i, i+1);
+            } else {
+                outString += string.substring(i, i+1);
+            }
+        }
+        return outString;
+    }
 }

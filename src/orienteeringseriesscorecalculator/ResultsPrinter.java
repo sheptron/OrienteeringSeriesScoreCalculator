@@ -75,7 +75,7 @@ public class ResultsPrinter {
             // Name
             html.append("<td>").append(athlete.name).append("</td>");
             // Club
-            html.append("<td>").append(athlete.club).append("</td>");
+            html.append("<td>").append(athlete.getOrganisation().getShortName()).append("</td>");
             // Runs
             html.append("<td>").append(athlete.results.size()).append("</td>");
             // Sum

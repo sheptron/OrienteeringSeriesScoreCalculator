@@ -5,6 +5,8 @@
  */
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.Id;
+import IofXml30.java.Organisation;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -16,14 +18,16 @@ public class XPersonResult {
     int entryId = 0;
     XPerson person = new XPerson();
     XResult result;
-    XOrganisation organisation = new XOrganisation();
+    Organisation organisation = new Organisation();
     
     public XPersonResult()
     {
-        XOrganisation organisation = new XOrganisation();
+        Organisation organisation = new Organisation();
         organisation.setName("");
         organisation.setShortName("");
-        organisation.setId("");
+        Id id = new Id();
+        id.setValue("");
+        organisation.setId(id);        
         this.organisation = organisation;
     }    
     public int getEntryId(){
@@ -53,12 +57,14 @@ public class XPersonResult {
         this.result = result;
     }
     
-    public XOrganisation getOrganisation(){
+    public Organisation getOrganisation(){
         if (this.organisation == null){
-            XOrganisation organisation = new XOrganisation();
+            Organisation organisation = new Organisation();
             organisation.setName("");
             organisation.setShortName("");
-            organisation.setId("");
+            Id id = new Id();
+            id.setValue("");
+            organisation.setId(id);
             this.organisation = organisation;
         }
         
@@ -66,7 +72,7 @@ public class XPersonResult {
     }
     
     @XmlElement(name="Organisation")
-    public void setOrganisation(XOrganisation organisation) {
+    public void setOrganisation(Organisation organisation) {
         this.organisation = organisation;
     }
 }

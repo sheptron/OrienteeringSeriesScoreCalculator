@@ -14,8 +14,13 @@ import java.util.Comparator;
 public class athleteScoreComparator implements Comparator<Athlete> {
     
         @Override
-        public int compare(Athlete athlete1, Athlete athlete2) {
-            // TODO need to work out the index, not just 0
-            return (athlete1.results.get(0).handicappedSpeed > athlete2.results.get(0).handicappedSpeed) ? 1 : 0;
+        public int compare(Athlete athlete1, Athlete athlete2) {            
+            
+            int speed1 = athlete1.getResults().get(0).getHandicappedSpeed();
+            int speed2 = athlete2.getResults().get(0).getHandicappedSpeed();
+            
+            if (speed1 < speed2) return -1;
+            else if (speed1 > speed2) return 1;
+            else return 0;
         }    
 }

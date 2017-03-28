@@ -5,9 +5,14 @@
  */
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.Country;
+import IofXml30.java.Id;
+import IofXml30.java.Organisation;
+import IofXml30.java.PersonResult;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import static orienteeringseriesscorecalculator.OrienteeringSeriesScoreCalculator.DEFAULT_ORGANISATION_ID_VALUE;
 
 
 
@@ -28,26 +33,24 @@ public class Athlete {
     String surname = "";
     public int yearOfBirth = 0;
     public int controlCard = 0;
-    public int id = 0;                      // id and/or controlCard could be used for checking duplicates
-    public String club = "";                // TODO
+    public Id id;                      // id and/or controlCard could be used for checking duplicates
     public Sex sex = Sex.YesPlease;
     public double currentHandicap = 1.0;    // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
     public String className = "Handicap";
     
-    public XOrganisation organisation;
+    public Organisation organisation;
   
-    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, int _id, String _club) {
+    Athlete (int _yearOfBirth, int _controlCard, Sex _sex, String firstName, String lastName, Id _id) {
         yearOfBirth = _yearOfBirth;
         controlCard = _controlCard;                 
         results = new ArrayList<Result>();
         sex = _sex;
         name = firstName + " " + lastName;
-        id = _id;
-        club = _club;
+        id = _id;        
     }
     
-    Athlete (XPersonResult personResult) {
+    /*Athlete (XPersonResult personResult) {
         yearOfBirth = personResult.person.getBirthYear();
         controlCard = personResult.result.controlCard;                 
         results = new ArrayList<Result>();
@@ -55,9 +58,44 @@ public class Athlete {
         firstName = personResult.person.name.given;
         surname = personResult.person.name.family;
         name = firstName + " " + surname;
-        id = personResult.person.id;
-        club = personResult.organisation.getShortName();  
+        id = personResult.person.id;         
         organisation = personResult.getOrganisation();
+    }*/
+    
+    Athlete (PersonResult personResult) {
+        yearOfBirth = personResult.getPerson().getBirthDate().getYear();
+        //controlCard = personResult.getResult().get(0).getControlCard().get(0).getValue();                 
+        results = new ArrayList<Result>();
+        String _sex = personResult.getPerson().getSex();
+        if (_sex.equals("M")) sex = Sex.Male;
+        else if (_sex.equals("F")) sex = Sex.Female;
+        firstName = personResult.getPerson().getName().getGiven();
+        surname = personResult.getPerson().getName().getFamily();
+        name = firstName + " " + surname;
+        
+        // TODO use Id
+        if (personResult.getPerson().getId().size()>0) {
+            id = personResult.getPerson().getId().get(0);
+        }
+        else {
+            id = new Id();  
+            id.setValue("");
+        }
+        
+        if (personResult.getOrganisation()!=null){        
+            organisation = personResult.getOrganisation();  
+        }
+        else {
+            organisation = new Organisation();
+            Id orgId = new Id();
+            orgId.setValue("");
+            organisation.setId(orgId);
+            
+            Country country = new Country();
+            country.setValue("");
+            country.setCode("");
+            organisation.setCountry(country);
+        }
     }
     
     public String getSex(){
@@ -67,6 +105,14 @@ public class Athlete {
             default:
                 return "M";               
         }
+    }
+
+    public Id getId() {
+        return id;
+    }
+
+    public void setId(Id id) {
+        this.id = id;
     }
     
     public void addResult(Result result){
@@ -118,45 +164,7 @@ public class Athlete {
        
         double handicap = HandicapFactors.getHandicap(sex, yearOfBirth, currentYear);
         currentHandicap = handicap;
-        return handicap;
-        /*
-        int y0 = currentYear - 92;
-        
-        if (yearOfBirth == 0){
-            // YOB unknown so assume elite
-            if (sex == Athlete.Sex.Female) handicap = 0.8;
-            else handicap = 1.0; 
-        }
-        else if (yearOfBirth < y0){
-            if (sex == Athlete.Sex.Female) handicap = 0.2922;
-            else handicap = 0.364;           
-        }
-        else if (yearOfBirth >= y0 && yearOfBirth <= y0+27){
-            if (sex == Athlete.Sex.Female) handicap = 0.009562963*(yearOfBirth-y0)+0.2922;
-            else handicap = 0.012*(yearOfBirth-y0)+0.364; 
-        }
-        else if (yearOfBirth >= y0+28 && yearOfBirth <= y0+57){
-            if (sex == Athlete.Sex.Female) handicap = 0.008*(yearOfBirth-y0-28)+0.56;
-            else handicap = 0.01*(yearOfBirth-y0-28)+0.7; 
-        }
-        else if (yearOfBirth >= y0+58 && yearOfBirth <= y0+71){
-            if (sex == Athlete.Sex.Female) handicap = 0.8;
-            else handicap = 1.0; 
-        }
-        else if (yearOfBirth >= y0+72 && yearOfBirth <= y0+82){
-            if (sex == Athlete.Sex.Female) handicap = -0.024*(yearOfBirth-y0-72)+0.776;
-            else handicap = -0.03*(yearOfBirth-y0-72)+0.97; 
-        }
-        else {
-            if (sex == Athlete.Sex.Female) handicap = 0.536;
-            else handicap = 0.67; 
-        }
-        
-        // Round to 4 decimal places
-        handicap = Math.round(handicap*10000) / 10000.0;
-        
-        currentHandicap = handicap;
-        return handicap;*/
+        return handicap;        
     }
  
     @Override
@@ -179,7 +187,8 @@ public class Athlete {
         boolean surnameMatch = this.surname.equalsIgnoreCase(athlete.surname);
         boolean fullNameMatch = this.name.equalsIgnoreCase(athlete.name);  
         // Eventor ID Number (athletes without an ID will be 0)
-        boolean idMatch = (this.id == athlete.id) && (this.id != 0);
+        //boolean idMatch = (this.id == athlete.id) && (this.id != 0);
+        boolean idMatch = (this.id.getValue().equals(athlete.id.getValue()) && (!this.id.getValue().equals("0")));
         boolean yobMatch = (this.yearOfBirth == athlete.yearOfBirth) && (this.yearOfBirth != 0);
         
         
@@ -225,4 +234,22 @@ public class Athlete {
         int hash = 7;
         return hash;
     }
+
+    public ArrayList<Result> getResults() {
+        return results;
+    }
+
+    public Organisation getOrganisation() {
+        return organisation;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+    
+    
 }

@@ -128,6 +128,16 @@ public class PersonResult {
      *     
      */
     public Organisation getOrganisation() {
+        if (this.organisation == null){
+            Organisation _organisation = new Organisation();
+            _organisation.setName("");
+            _organisation.setShortName("");
+            Id id = new Id();
+            id.setValue("");
+            _organisation.setId(id);
+            this.organisation = _organisation;
+        }
+        
         return organisation;
     }
 

@@ -180,6 +180,10 @@ public class OrienteeringSeriesScoreCalculator {
                             int distanceInMetres = classResult.getCourse().get(0).getLength().intValue();
                             for (PersonResult personResult : classResult.getPersonResult()) {
                                 
+                                if (!personResult.getResult().get(0).getStatus().equals(ResultStatus.OK)){
+                                    continue;
+                                }
+                                
                                 // Only OACT members are eligible for ACT League                                 
                                 if (mode == Mode.ACT_LEAGUE && !isEligibleClub(personResult.getOrganisation())){
                                         continue;
@@ -187,7 +191,7 @@ public class OrienteeringSeriesScoreCalculator {
                                 
                                 Athlete athlete = new Athlete(personResult);
                                 
-                                double currentHandicap = athlete.calculateHandicap(currentYear);
+                                double currentHandicap = athlete.calculateHandicap(currentYear);   
 
                                 int timeInSeconds = personResult.getResult().get(0).getTime().intValue();// .result.timeInSeconds;
 
@@ -320,19 +324,19 @@ public class OrienteeringSeriesScoreCalculator {
         switch (mode) {
             case JIM_SAWKINS:
                 // TODO need to fix results printer to work with Event (not XEvent)
-                /*
-                ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList, mode);
-                String htmlResults = null;
                 
-                resultsPrinter.writeJimSawkinsResults(overallResultList, division2ResultList);
-                htmlResults = resultsPrinter.htmlResults;   // TODO fix up this, we need finaliseTable below but it won't work for JIM_SAWKINS
+                //ResultsPrinter resultsPrinter = new ResultsPrinter(eventsList, mode);
+                //String htmlResults = null;
+                
+                String htmlResults = ResultsPrinter.writeJimSawkinsResults(overallResultList, division2ResultList);
+                //htmlResults = resultsPrinter.htmlResults;   // TODO fix up this, we need finaliseTable below but it won't work for JIM_SAWKINS
 
                 // Build Filename
                 String outFilename;
                 outFilename = folder.toString() + "/" + currentYear + "_Jim_Sawkins_Handicap_Results.html";
                 StringToFile.write(outFilename, htmlResults);
                 InformationDialog.infoBox(outFilename, "Results Written To ...");
-                break;*/
+                break;
                 
             default:
                 

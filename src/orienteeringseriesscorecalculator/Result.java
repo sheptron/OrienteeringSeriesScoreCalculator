@@ -25,7 +25,7 @@ public class Result {
     public double handicap = 1.0;           // Assume the worst (no handicap)
     public boolean status = true;       // Innocent unless proven guilty
     
-    Result(XEvent event, int _timeInSeconds, int _distanceInMetres, double _handicap){
+    /*Result(XEvent event, int _timeInSeconds, int _distanceInMetres, double _handicap){
         
         raceName = event.parseRaceName();
         raceDate = event.parseDate();
@@ -37,7 +37,7 @@ public class Result {
         handicap = _handicap;
         
         this.calculateHandicappedSpeed();        
-    }
+    }*/
     
     Result(Event event, int _timeInSeconds, int _distanceInMetres, double _handicap){
         

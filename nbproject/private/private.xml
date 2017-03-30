@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/Result.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/IofXml30/java/PersonResult.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/XResultList.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/XPerson.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/IofXml30/java/PersonRaceResult.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/ResultsPrinter.java</file>
             <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/OrienteeringSeriesScoreCalculator.java</file>
+            <file>file:/home/shep/workspace/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/Athlete.java</file>
         </group>
     </open-files>
 </project-private>

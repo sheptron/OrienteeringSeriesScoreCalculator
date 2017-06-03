@@ -5,6 +5,7 @@
  */
 package orienteeringseriesscorecalculator;
 
+import IofXml30.java.ClassResult;
 import IofXml30.java.Country;
 import IofXml30.java.Id;
 import IofXml30.java.Organisation;
@@ -12,9 +13,6 @@ import IofXml30.java.PersonResult;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import static orienteeringseriesscorecalculator.OrienteeringSeriesScoreCalculator.DEFAULT_ORGANISATION_ID_VALUE;
-
-
 
 /**
  *
@@ -26,6 +24,7 @@ public class Athlete {
      *
      */
     public enum Sex {Male, Female, YesPlease};
+    public enum JimSawkinsDivision {One, Two, All, Ineligible};
     
     public ArrayList<Result> results;
     public String name = "";
@@ -38,6 +37,7 @@ public class Athlete {
     public double currentHandicap = 1.0;    // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
     public String className = "Handicap";
+    public JimSawkinsDivision jimSawkinsDivision;
     
     public Organisation organisation;
   
@@ -63,8 +63,14 @@ public class Athlete {
     }*/
     
     Athlete (PersonResult personResult) {
-        yearOfBirth = personResult.getPerson().getBirthDate().getYear();
-        //controlCard = personResult.getResult().get(0).getControlCard().get(0).getValue();                 
+        
+        if (personResult.getPerson().getBirthDate() == null){            
+            yearOfBirth = 0;
+        }
+        else {
+            yearOfBirth = personResult.getPerson().getBirthDate().getYear();
+        }
+        
         results = new ArrayList<Result>();
         String _sex = personResult.getPerson().getSex();
         if (_sex.equals("M")) sex = Sex.Male;
@@ -73,7 +79,7 @@ public class Athlete {
         surname = personResult.getPerson().getName().getFamily();
         name = firstName + " " + surname;
         
-        // TODO use Id
+
         if (personResult.getPerson().getId().size()>0) {
             id = personResult.getPerson().getId().get(0);
         }
@@ -95,8 +101,8 @@ public class Athlete {
             country.setValue("");
             country.setCode("");
             organisation.setCountry(country);
-        }
-    }
+        }                
+    }    
     
     public String getSex(){
         switch (sex){
@@ -250,6 +256,44 @@ public class Athlete {
     public String getSurname() {
         return surname;
     }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }        
     
+    public JimSawkinsDivision getJimSawkinsDivision() {
+        return jimSawkinsDivision;
+    }
+
+    public void setJimSawkinsDivision(JimSawkinsDivision jimSawkinsDivision) {
+        this.jimSawkinsDivision = jimSawkinsDivision;
+    }
+    
+    public void determineJimSawkinsDivision(ClassResult classResult, int currentYear){
+        
+        /*
+        Division 1: Only competitors on Red 1.
+        Division 2: All competitors (except Men open, ie Men aged 21 to 34) on courses Red 2, 3 and 4.
+        */        
+        
+        if (classResult.getCourse().get(0).getName().equals("Red 1")){
+            this.setJimSawkinsDivision(jimSawkinsDivision.One);
+        }  
+        else {
+            int ageAtEndOfThisYear = currentYear - this.yearOfBirth;
+            
+            if (ageAtEndOfThisYear > 20 && ageAtEndOfThisYear < 35 && this.sex == Sex.Male) {
+                this.setJimSawkinsDivision(jimSawkinsDivision.Ineligible);
+            }
+            else {
+                this.setJimSawkinsDivision(jimSawkinsDivision.Two);
+            }
+        }
+        
+    }
     
 }

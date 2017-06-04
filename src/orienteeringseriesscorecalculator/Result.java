@@ -104,6 +104,18 @@ public class Result {
     public int getHandicappedPlace() {
         return handicappedPlace;
     }     
+
+    public double getHandicap() {
+        return handicap;
+    }
+
+    public int getDistanceInMetres() {
+        return distanceInMetres;
+    }
+
+    public int getTimeInSeconds() {
+        return timeInSeconds;
+    }
     
     private static String parseDate(Event event){
         // This is only going to work for Twilight races which use format

@@ -27,39 +27,39 @@ import javax.xml.datatype.XMLGregorianCalendar;
 /**
  *
  * @author shep
- * 
+ *
  * All classes with name starting with X are for serializing/deserializing IOF standard XML files
  */
 public class OrienteeringSeriesScoreCalculator {
-    
+
     /*
     TODO add logging - give the user information including
     - what races were successfully processed
     - what Athletes were "merged" (ie entered under different names but deemed
         to be the same person)
-    - what "assumptions" were made (eg determining the year of the series from 
+    - what "assumptions" were made (eg determining the year of the series from
         the dates in the results XML files)
     - etc
     */
 
     public static final int FIRST_PLACE_SCORE = 125;  // Score for the (handicapped winner)
     public static final double PREENTRY_POINTS_FACTOR = 1.1; // Points are multiplied by this factor for preentry races
-    
-    /* TODO decide whether to leave ALLOWED CLASSES up to the person exporting 
+
+    /* TODO decide whether to leave ALLOWED CLASSES up to the person exporting
     the results from OE (or equivalent). It's probably safest as we may not be
     able to determine whether a course was (eg) "Red" standard as course names
     may be "Course 1" rather than "Red 1". */
-    private static final String[] ALLOWED_CLASSES = {"Orange"}; 
-    
+    private static final String[] ALLOWED_CLASSES = {"Orange"};
+
     public static final String CREATOR = "Would You Believe Not a Spreadsheet";
-    
+
     public static final String[] OACT_CLUB_EVENTOR_IDS = {"4", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "629"};
-    
+
     public static final String DEFAULT_ORGANISATION_ID_VALUE = "4"; // If Athlete has no organisation make them OACT
-    
-    /* 
+
+    /*
     Modes of operation: Twilight Series, ACT League, Jim Sawkins and (single) Handicap
-    Jim Sawkins and Handicap are essentially the same but differ 
+    Jim Sawkins and Handicap are essentially the same but differ
         - the format of the files they produce
         - Handicap assigns points in the same way as Twilight and ACT League
     */
@@ -79,25 +79,25 @@ public class OrienteeringSeriesScoreCalculator {
          e. Sort handicapped results and assign scores
          3. Calculate total scores for each Athlete
          4. Sort Athletes by total score
-         5. Write output    
-         */        
-        
+         5. Write output
+         */
+
         // Initialise Current Year (Used for Handicap Calcs)
         int currentYear = 2016;       // Get it from xml files (createTime)
-        
+
         //ArrayList<Athlete> overallResultList = new ArrayList<>();
         ArrayList<Athlete> raceResultList = new ArrayList<>();
 
         ArrayList<Event> eventsList = new ArrayList<>();
-        
+
         // Ask the user - Twilight Series, ACT League or Jim Sawkins
         // Select mode... hard code for now
-        Mode mode = Mode.TWILIGHT;                
-        
+        Mode mode = Mode.TWILIGHT;
+
         Object selected = JOptionPane.showInputDialog(null, "What Sort of Race is This?", "Selection", JOptionPane.DEFAULT_OPTION, null, MODES, "0");
-        if (selected != null) {//null if the user cancels. 
+        if (selected != null) {//null if the user cancels.
             String selectedString = selected.toString();
-            
+
             for (int ii=0; ii<MODES.length; ii++){
                 if (selectedString.equals(MODES[ii])){
                     mode = Mode.values()[ii];
@@ -107,8 +107,8 @@ public class OrienteeringSeriesScoreCalculator {
             System.out.println("User cancelled");
             InformationDialog.infoBox("No race type selected, press OK to exit.", "Warning");
             return;
-        }     
-        
+        }
+
         /*Object[] optionz = { "Twilight", "ACT League" }; // Twilight=0, ACT League = 1
         int modeSelection = JOptionPane.showOptionDialog(null, "Do you want to apply handicap to Twilight or ACT League results?", "Please Select",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
@@ -125,12 +125,12 @@ public class OrienteeringSeriesScoreCalculator {
         fc.setFileFilter(new FileNameExtensionFilter("OE XML Results Files", "xml"));
 
         File folder;
-        File[] listOfFiles;
+        File resultFile;
         if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 
             // We'll only have one file in this case
-            listOfFiles = new File[1];
-            listOfFiles[0] = fc.getSelectedFile();
+            //listOfFiles = new File[1];
+            resultFile = fc.getSelectedFile();
             folder = fc.getSelectedFile().getParentFile();
 
         } else {
@@ -138,22 +138,19 @@ public class OrienteeringSeriesScoreCalculator {
             return;
         }
 
-        // Use for debugging rather than prompting user for files 
+        // Use for debugging rather than prompting user for files
         //File folder = new File("/home/shep/NetBeansProjects/OrienteeringSeriesScoreCalculator/src/orienteeringseriesscorecalculator/TestFiles");
-        //File[] listOfFiles = folder.listFiles();
+        //File[] resultFile = folder.listFiles();        
 
-        // TODO we don't need a for loop any more - there's only one file
-        for (int i = 0; i < listOfFiles.length; i++) {
+            if (resultFile.isFile()) {
+                System.out.println("File " + resultFile.getName());
 
-            if (listOfFiles[i].isFile()) {
-                System.out.println("File " + listOfFiles[i].getName());
-
-                if (getFileExtension(listOfFiles[i]).equals("xml")) {
+                if (getFileExtension(resultFile).equals("xml")) {
 
                     // We have an XML file so parse it in
-                    String filename = listOfFiles[i].getAbsolutePath();
+                    String filename = resultFile.getAbsolutePath();
 
-                    try {                        
+                    try {
 
                         // Check for a # in the filename and replace with a _
                         // # will cause a file not found exception in JAXB
@@ -169,13 +166,13 @@ public class OrienteeringSeriesScoreCalculator {
                         //resultList.cleanClasses(ALLOWED_CLASSES);
 
                         // TODO check if there actually was any courses
-                        
+
                         XMLGregorianCalendar createTime = resultList.getCreateTime();
-                        int createYear = createTime.getYear();                                               
+                        int createYear = createTime.getYear();
 
                         // Keep a record of this race
                         eventsList.add(resultList.getEvent());
-                        
+
                         // TODO check the year to see if it makes sense
                         currentYear = createYear;
 
@@ -187,23 +184,23 @@ public class OrienteeringSeriesScoreCalculator {
                         Event event = resultList.getEvent();
 
                         for (ClassResult classResult : resultList.getClassResult()) {
-                            
+
                             int distanceInMetres = classResult.getCourse().get(0).getLength().intValue();
                             for (PersonResult personResult : classResult.getPersonResult()) {
-                                
+
                                 if (!personResult.getResult().get(0).getStatus().equals(ResultStatus.OK)){
                                     continue;
                                 }
-                                
-                                // Only OACT members are eligible for ACT League                                 
+
+                                // Only OACT members are eligible for ACT League
                                 if (mode == Mode.ACT_LEAGUE && !isEligibleClub(personResult.getOrganisation())){
                                         continue;
-                                }                                    
-                                
-                                Athlete athlete = new Athlete(personResult);                                
-                                
-                                double currentHandicap = athlete.calculateHandicap(currentYear); 
-                                
+                                }
+
+                                Athlete athlete = new Athlete(personResult);
+
+                                double currentHandicap = athlete.calculateHandicap(currentYear);
+
                                 if (mode == Mode.JIM_SAWKINS) athlete.determineJimSawkinsDivision(classResult, currentYear);
 
                                 int timeInSeconds = personResult.getResult().get(0).getTime().intValue();// .result.timeInSeconds;
@@ -213,57 +210,67 @@ public class OrienteeringSeriesScoreCalculator {
                                 if (!personResult.getResult().get(0).getStatus().equals(ResultStatus.OK)){
                                     result.setStatus(false);
                                 }
-                                                               
+
                                 athlete.addResult(result);
 
                                 // Now add this athlete and result to array
                                 raceResultList.add(athlete);
                             }
                         }
-                        
-                        // Assign Scores: this is where things get different depending on Mode                        
-                        
-                        // First sort by handicappedSpeed 
+
+                        // Assign Scores: this is where things get different depending on Mode
+
+                        // First sort by handicappedSpeed
                         Collections.sort(raceResultList, new athleteScoreComparator());
 
-                        switch (mode) {                            
-                                                        
+                        switch (mode) {
+
                             case JIM_SAWKINS:
-                                
-                                // Assign handicapped places                    
+
+                                // Assign handicapped places
                                 for (int k = 0; k < raceResultList.size(); k++) {
                                     raceResultList.get(k).results.get(0).setHandicappedPlace(k + 1);
                                 }
-                                
-                                break;                                
 
-                            default:                              
+                                break;
 
-                                // Assign points                    
+                            default:
+
+                                // Assign points
                                 for (int k = 0; k < raceResultList.size(); k++) {
                                     raceResultList.get(k).results.get(0).setHandicappedPlace(k + 1);
                                     raceResultList.get(k).results.get(0).calculateScore();
                                 }
-                            
+
                             break;
                         }
                     } catch (JAXBException e) {
                         // TODO Handle JAXB exceptions PER FILE
-                        System.out.println("File " + listOfFiles[i].getName() + " failed to parse.");
+                        System.out.println("File " + resultFile.getName() + " failed to parse.");
                     } catch (IOException e) {
-                        System.out.println("File " + listOfFiles[i].getName() + ": " + e.getMessage());
+                        System.out.println("File " + resultFile.getName() + ": " + e.getMessage());
                     }
                 }
             }
-        }
+        
 
         // TODO maybe we should write a log file : athlete name, YoB, Handicap applied etc, just for user to do a sanity check
-        /*for (Athlete athlete : raceResultList){
-            String string = athlete.getFirstName() + " " + athlete.getSurname() + " : " + athlete.getJimSawkinsDivision().toString() + "\n";
-            System.out.println(string);
-        }*/
+        String logString = "Name,Sex,YoB,Course Distance (m),Race Time (s),Handicap,Handicapped Km Rate (s/km),Jim Sawkins Division\n";
+        for (Athlete athlete : raceResultList) {
+
+            if (!athlete.getResults().isEmpty()) {
+
+                Result result = athlete.getResults().get(0);
+
+                logString += athlete.getFirstName() + " " + athlete.getSurname() + ","
+                        + athlete.getSex() + "," + athlete.getYearOfBirth() + ","
+                        + result.getDistanceInMetres() + "," + result.getTimeInSeconds() + ","
+                        + result.getHandicap() + "," + result.getHandicappedKmRate() + ","
+                        + athlete.getJimSawkinsDivision().toString() + "\n";                
+            }
+        }
         // TODO get out now if there are no races
-        
+
         // Decide How Many Races to Include
         int totalNumberOfRaces = 1; //eventsList.size();
 
@@ -276,16 +283,16 @@ public class OrienteeringSeriesScoreCalculator {
 
         if (numberOfRaces > 1) {
             String userSelection = InformationDialog.selectionBox(options, numberOfRaces - 1, "Select", "How Many Races Count?");
-         
+
             if (userSelection != null) {
             // If the user didn't press cancel, then check what they selected
             numberOfRaces = Integer.parseInt(userSelection);
             }
         }
-        
+
         ArrayList<Athlete> division1ResultList = new ArrayList<>(); // TODO - only needed for JIM_SAWKINS, can we declare it only if needed?
         ArrayList<Athlete> division2ResultList = new ArrayList<>(); // TODO - only needed for JIM_SAWKINS, can we declare it only if needed?
-        
+
         switch (mode) {
 
             case JIM_SAWKINS:
@@ -293,9 +300,9 @@ public class OrienteeringSeriesScoreCalculator {
                 /*
                 Results are already sorted but it needs to be divided up into Division 1 and 2
                 Athletes should have their Division as a property
-                */     
+                */
                 ArrayList<Athlete> ineligibleAthletes = new ArrayList<>(); // TODO Do we want to report this?
-                
+
                 for (Athlete athlete : raceResultList) {
                     if (null != athlete.getJimSawkinsDivision()) // Add athlete if eligible
                     {
@@ -313,7 +320,7 @@ public class OrienteeringSeriesScoreCalculator {
                     }
                     else ineligibleAthletes.add(athlete);
                 }
-                
+
                 break;
 
             default:
@@ -331,50 +338,50 @@ public class OrienteeringSeriesScoreCalculator {
                     }
                 });
         }
-        
+
         // Now publish
-        
+
         switch (mode) {
             case JIM_SAWKINS:
-                // TODO need to fix results printer to work with Event (not XEvent)                
-                
+                // TODO need to fix results printer to work with Event (not XEvent)
+
                 String htmlResults = ResultsPrinter.writeJimSawkinsResults(division1ResultList, division2ResultList);
-               
+
                 // Build Filename
                 String outFilename;
                 outFilename = folder.toString() + "/" + currentYear + "_Jim_Sawkins_Handicap_Results.html";
                 StringToFile.write(outFilename, htmlResults);
                 InformationDialog.infoBox(outFilename, "Results Written To ...");
                 break;
-                
+
             default:
-                
+
                 // Produce an XML for Eventor
-                
+
                 ObjectFactory factory = new ObjectFactory();
-               
+
                 // Event Name
-                
-                // Event Date            
+
+                // Event Date
                 //currentYear = eventsList.get(0).getYear();
                 ///String event
                 double fastestTime = raceResultList.get(0).getResults().get(0).getHandicappedKmRate();
-                
+
                 // Build Person Results
-                ArrayList<PersonResult> personResults = new ArrayList<>();  
+                ArrayList<PersonResult> personResults = new ArrayList<>();
                 int position = 1;
-                for (Athlete athlete : raceResultList) {                    
-                    
-                    // Person 
+                for (Athlete athlete : raceResultList) {
+
+                    // Person
                     PersonName personName = factory.createPersonName();
                     personName.setFamily(athlete.getSurname());
-                    personName.setGiven(athlete.getFirstName());                    
+                    personName.setGiven(athlete.getFirstName());
                     Person person = factory.createPerson();
-                    person.setName(personName);                    
-                    person.setSex(athlete.getSex());                    
+                    person.setName(personName);
+                    person.setSex(athlete.getSex());
                     //Id personId = factory.createId();
                     //personId.setValue(String.valueOf(athlete.id));
-                    // Only Set the ID if The Athlete has one so eventor won't cry 
+                    // Only Set the ID if The Athlete has one so eventor won't cry
                     if (!athlete.getId().getValue().equals("")) {
                         ArrayList<Id> personIds = new ArrayList<>();
                         //personIds.add(personId);
@@ -387,7 +394,7 @@ public class OrienteeringSeriesScoreCalculator {
                     Id orgId = factory.createId();
                     orgId.setValue(athletesOrganisation.getId().getValue());
                     organisation.setId(orgId);
-                    
+
                     // Organisation (club)
                     organisation.setName(athletesOrganisation.getName());
                     organisation.setShortName(athletesOrganisation.getShortName());
@@ -399,66 +406,66 @@ public class OrienteeringSeriesScoreCalculator {
                         cuntry.setCode(athletesOrganisation.getCountry().getCode()); // TODO XOrganisation needs an XCountry to get this to work properly!
                         cuntry.setValue(athletesOrganisation.getCountry().getValue());
                     }
-                    organisation.setCountry(cuntry); 
+                    organisation.setCountry(cuntry);
                     // Don't add an empty organisation (eventor doesn't like it)
                     boolean isMember = !athletesOrganisation.getId().equals("");
-                    
+
                     // Result
                     // Race Time (handicapped)
                     PersonRaceResult result = factory.createPersonRaceResult();
                     result.setTime(athlete.getResults().get(0).getHandicappedKmRate());
-                    
+
                     // Status
                     if (athlete.getResults().get(0).getStatus()) {
                         result.setStatus(ResultStatus.OK);
                     }
                     else result.setStatus(ResultStatus.DISQUALIFIED);
-                    
+
                     // TODO Time Behind
                     double timeBehind = athlete.getResults().get(0).getHandicappedKmRate() - fastestTime;
-                    
+
                     result.setTimeBehind(timeBehind);
-                    
+
                     // Position
                     result.setPosition(BigInteger.valueOf(position));
-                                  
+
                     // XML needs an array of results (there will only be one result)
                     ArrayList<PersonRaceResult> results = new ArrayList<>();
                     results.add(result);
-                    
+
                     // Build the XML PersonResult
-                    PersonResult personResult = factory.createPersonResult();                    
+                    PersonResult personResult = factory.createPersonResult();
                     personResult.setPerson(person);
                     if (isMember) personResult.setOrganisation(organisation);
                     personResult.setResult(results);
-                
+
                     // Finally add this Person Result to our list
                     personResults.add(personResult);
-                    
+
                     position += 1;
                 // Build Class
                 }
-                
+
                 // Set up the Class (course) Result (there will only be one - Handicap)
                 ClassResult classResult = factory.createClassResult();
                 classResult.setPersonResult(personResults);
                 ArrayList<ClassResult> classResults = new ArrayList<>();
                 classResults.add(classResult);
-                
+
                 Clazz clazz = factory.createClass();
                 clazz.setName("Handicap");
                 clazz.setShortName("Handicap");
-                classResult.setClazz(clazz);                  
-                        
+                classResult.setClazz(clazz);
+
                 ResultList resultList = factory.createResultList();
                 resultList.setClassResult(classResults);
                 resultList.setIofVersion("3.0");
                 resultList.setCreator(CREATOR);
-                
+
                 Event event = factory.createEvent();
                 Id eventId = factory.createId();
                 eventId.setValue("1");
-                
+
                 // Event Name
                 event.setName(eventsList.get(0).getName());
                 // TODO might need start time
@@ -470,13 +477,13 @@ public class OrienteeringSeriesScoreCalculator {
                 date.setDay(13);
                 startTime.setDate(date);
                 event.setStartTime(startTime);*/
-                
-                resultList.setEvent(event);                                
+
+                resultList.setEvent(event);
 
                 String filename = eventsList.get(0).getName() + "_Handicapped_Times_For_Eventor.xml";
-                
+
                 File file = new File(folder, filename);
-                                
+
 		JAXBContext jaxbContext = JAXBContext.newInstance("IofXml30.java");
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -484,21 +491,25 @@ public class OrienteeringSeriesScoreCalculator {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		jaxbMarshaller.marshal(resultList, file);
-		
+
                 String filePath = file.toString();
                 String info = "Handicapped results written to \n" + filePath + "\n" +
                         "Please upload this XML file to the corresponding event on Eventor.";
-                
+
                 info = info + String.format(" The year of this race was detected as %d, let the developer know if this is wrong.", currentYear);
                 InformationDialog.infoBox(info, "Handicapping Finished");
-                
-                
+
+
                 break;
-                
+
             /*default:
                 resultsPrinter.writeResults(overallResultList);
                 htmlResults = resultsPrinter.finaliseTable();*/
-        }        
+        }
+        
+        String logFilename = folder.toString() + "/" + currentYear + "_Jim_Sawkins_Handicap_Results_Log_File.csv";                
+        StringToFile.write(logFilename, logString);                
+        InformationDialog.infoBox(logFilename, "Log Written To ...");
     }
 
     private static String getFileExtension(File file) {
@@ -509,9 +520,9 @@ public class OrienteeringSeriesScoreCalculator {
             return "";
         }
     }
-    
+
     private static String cleanFilenameString(String filename) throws IOException {
-        
+
         if (filename.contains("#")) {
             File oldName = new File(filename);
             String newFilename = filename.replace("#", "_");
@@ -522,24 +533,24 @@ public class OrienteeringSeriesScoreCalculator {
                 throw new IOException("Unable to rename file (replace '#' with '_').");
             }
         }
-        
+
         return filename;
     }
-    
+
     private static boolean isEligibleClub(Organisation organisation){
-        
+
         if (organisation == null) return false;
-        
+
         if (organisation.getId()==null) return false;
-        
+
         String thisIdValue = organisation.getId().getValue();
-        
+
         for (String orgIdValue : OACT_CLUB_EVENTOR_IDS){
-            
+
             if (thisIdValue.equals(orgIdValue)){
                 return true;
-            }            
-        }        
+            }
+        }
         return false;
     }
 }

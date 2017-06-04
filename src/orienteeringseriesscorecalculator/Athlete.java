@@ -24,7 +24,7 @@ public class Athlete {
      *
      */
     public enum Sex {Male, Female, YesPlease};
-    public enum JimSawkinsDivision {One, Two, All, Ineligible};
+    public enum JimSawkinsDivision {One, Two, All, Ineligible, NA};
     
     public ArrayList<Result> results;
     public String name = "";
@@ -37,7 +37,7 @@ public class Athlete {
     public double currentHandicap = 1.0;    // Current - just to be clear that the handicap in a Result may be different
     public int totalScore = 0;
     public String className = "Handicap";
-    public JimSawkinsDivision jimSawkinsDivision;
+    public JimSawkinsDivision jimSawkinsDivision = JimSawkinsDivision.NA;
     
     public Organisation organisation;
   
@@ -280,13 +280,17 @@ public class Athlete {
         Division 2: All competitors (except Men open, ie Men aged 21 to 34) on courses Red 2, 3 and 4.
         */        
         
-        if (classResult.getCourse().get(0).getName().equals("Red 1")){
+        if (classResult.getCourse().get(0).getName().contains("Red 1")){
             this.setJimSawkinsDivision(jimSawkinsDivision.One);
         }  
         else {
             int ageAtEndOfThisYear = currentYear - this.yearOfBirth;
             
             if (ageAtEndOfThisYear > 20 && ageAtEndOfThisYear < 35 && this.sex == Sex.Male) {
+                this.setJimSawkinsDivision(jimSawkinsDivision.Ineligible);
+            }
+            else if (this.yearOfBirth == 0 && this.sex == Sex.Male) {
+                // If we don't have a YoB then assume Men Open
                 this.setJimSawkinsDivision(jimSawkinsDivision.Ineligible);
             }
             else {
